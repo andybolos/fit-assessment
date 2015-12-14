@@ -1,0 +1,67 @@
+/** 
+*   InteraFit Item Content 
+*   Copyright InteraSolutions, Inc. 
+*/
+
+[
+  {
+    "item_id":"rcq_item_01",
+    "item_text":"I don't feel that I have any problems that need changing."
+  },
+  {
+    "item_id":"rcq_item_02",
+    "item_text":"There is nothing in my life that I want to change."
+  },
+  {
+    "item_id":"rcq_item_03",
+    "item_text":"My family or friends have been pressuring me to make positive changes in my life."
+  },
+  {
+    "item_id":"rcq_item_04",
+    "item_text":"I am considering making some positive changes in my life."
+  },
+  {
+    "item_id":"rcq_item_05",
+    "item_text":"I have been thinking seriously about how to make the changes I want in my life."
+  },
+  {
+    "item_id":"rcq_item_06",
+    "item_text":"I am not strongly committed to making any positive changes right now."
+  },
+  {
+    "item_id":"rcq_item_07",
+    "item_text":"I am taking small steps toward making the changes I want in my life."
+  },
+  {
+    "item_id":"rcq_item_08",
+    "item_text":"I am ready to make change and am preparing to do so."
+  },
+  {
+    "item_id":"rcq_item_09",
+    "item_text":"I am committed to making the changes I need in my life."
+  },
+  {
+    "item_id":"rcq_item_10",
+    "item_text":"I am currently making changes in my life."
+  },
+  {
+    "item_id":"rcq_item_11",
+    "item_text":"I know the changes I've made are noticeable, because others have commented on them."
+  },
+  {
+    "item_id":"rcq_item_12",
+    "item_text":"I work hard to make meaningful changes in my life."
+  },
+  {
+    "item_id":"rcq_item_13",
+    "item_text":"I work hard to make sure I don't revert back to old behaviors once I've made changes."
+  },
+  {
+    "item_id":"rcq_item_14",
+    "item_text":"I am usually effective at maintaining changes once I have been doing them for a few months."
+  },
+  {
+    "item_id":"rcq_item_15",
+    "item_text":"I try to stay motivated to maintain the change I have made."
+  }
+]

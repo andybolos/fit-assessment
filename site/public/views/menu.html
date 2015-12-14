@@ -1,0 +1,39 @@
+<div class="mycontainer">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="nav navbar-header">
+                <a ui-sref="home">
+                    <img src="../assets/logo.png" alt="" />
+                </a>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <h1>Choose the assessment right for you</h1>
+        <ul class="list-group">
+            <li class="list-group-item">Readiness to Change
+                <span class="pull-right">
+                    <input type="checkbox" ng-model="assessments.free.selected"> Free</span>
+            </li>
+            <li class="list-group-item"> Eating Behaviors / Body Image
+                <span class="pull-right">
+                    <input type="checkbox" ng-model="assessments.eating.selected">$7.99</span>
+            </li>
+            <li class="list-group-item">Stress
+                <span class="pull-right">
+                    <input type="checkbox" ng-model="assessments.stress.selected">$7.99</span>
+            </li>
+            <li class="list-group-item">Depression
+                <span class="pull-right">
+                    <input type="checkbox" ng-model="assessments.depression.selected">$7.99</span>
+            </li>
+            <li class="list-group-item">Anxiety
+                <span class="pull-right">
+                    <input type="checkbox" ng-model="assessments.anxiety.selected">$7.99</span>
+            </li>
+            <li class="list-group-item pull-right">Total ${{ total() }}</span>
+            </li>
+        </ul>
+        <button type="button" class="btn btn-primary" ng-click="checkout(assessments)">Check Out</button>
+    </section>
+</div>

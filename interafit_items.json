@@ -1,0 +1,1316 @@
+/**
+*   InteraFit Item Content
+*   Copyright InteraSolutions, Inc.
+*
+*   JSON Definition:
+*     itemID - the order in which items are presented (Used in Quiz)
+*     sort_order - the original item order, where items from each scale are grouped together (Not Used in Product)
+*     scale_name - the subscale's branding (Not Used in Product)
+*     scale_construct - the domain being assessed by the scale (Not Used in Product)
+*     scale_direction - Is the item forward or reverse scored?  (FWD=123456; REV=654321; Used in Quiz to change response values)
+*     item_text - Actual item content (used in Quiz)
+*     scale_tblName - table into which the value should be stored (you can change this logic and store however makes sense)
+*     scale_fieldName - name of the field into which the value should be stored (you can change this if you want as long as we can still identify)
+*/
+
+/**
+*   BASI-9
+*   BIA
+*   EBI
+*   RCQ15
+*   PoSI
+*   BDSI-9
+*/
+
+[
+  {
+    "itemID":"1",
+    "sort_order":"126",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"People tell me to relax more often.",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_06"
+  },
+  {
+    "itemID":"2",
+    "sort_order":"42",
+    "scale_name":"BIA",
+    "scale_construct":"1c",
+    "scale_direction":"FWD",
+    "item_text":"There are certain aspects of my body that I find disgusting (e.g., body hair, sweating, scars, body odor).",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_07"
+  },
+  {
+    "itemID":"3",
+    "sort_order":"30",
+    "scale_name":"EBI",
+    "scale_construct":"3.a",
+    "scale_direction":"FWD",
+    "item_text":"I feel disgusted with myself because of my overeating.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_28"
+  },
+  {
+    "itemID":"4",
+    "sort_order":"125",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"My muscles often feel tense. ",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_05"
+  },
+  {
+    "itemID":"5",
+    "sort_order":"114",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"I have been very fidgety and restless lately. ",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_03"
+  },
+  {
+    "itemID":"6",
+    "sort_order":"31",
+    "scale_name":"EBI",
+    "scale_construct":"2.b.iii",
+    "scale_direction":"FWD",
+    "item_text":"I try to vomit after eating because I feel disgusted with myself.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_18"
+  },
+  {
+    "itemID":"7",
+    "sort_order":"99",
+    "scale_name":"RCQ15",
+    "scale_construct":"3",
+    "scale_direction":"FWD",
+    "item_text":"I am taking small steps toward making the changes I want in my life.  ",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_07"
+  },
+  {
+    "itemID":"8",
+    "sort_order":"38",
+    "scale_name":"BIA",
+    "scale_construct":"1b",
+    "scale_direction":"FWD",
+    "item_text":"I do not like the shape of my body. ",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_06"
+  },
+  {
+    "itemID":"9",
+    "sort_order":"98",
+    "scale_name":"RCQ15",
+    "scale_construct":"2",
+    "scale_direction":"FWD",
+    "item_text":"I am considering making some positive changes in my life.  ",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_04"
+  },
+  {
+    "itemID":"10",
+    "sort_order":"53",
+    "scale_name":"BIA",
+    "scale_construct":"1f",
+    "scale_direction":"FWD",
+    "item_text":"The shame I feel about my body keeps me from doing things I enjoy.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_16"
+  },
+  {
+    "itemID":"50",
+    "sort_order":"86",
+    "scale_name":"PoSI",
+    "scale_construct":"1.b",
+    "scale_direction":"FWD",
+    "item_text":"I have recently suffered the death of a loved one.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_04"
+  },
+  {
+    "itemID":"49",
+    "sort_order":"109",
+    "scale_name":"RCQ15",
+    "scale_construct":"3",
+    "scale_direction":"FWD",
+    "item_text":"I am committed to making the changes I need in my life.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_09"
+  },
+  {
+    "itemID":"48",
+    "sort_order":"119",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"Even when things are going right, I feel sad and depressed.",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_08"
+  },
+  {
+    "itemID":"47",
+    "sort_order":"17",
+    "scale_name":"EBI",
+    "scale_construct":"2.b.v",
+    "scale_direction":"FWD",
+    "item_text":"I am ashamed of how much I eat.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_20"
+  },
+  {
+    "itemID":"46",
+    "sort_order":"79",
+    "scale_name":"PoSI",
+    "scale_construct":"2.b",
+    "scale_direction":"FWD",
+    "item_text":"My appetite has changed recently because of stress.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_08"
+  },
+  {
+    "itemID":"44",
+    "sort_order":"61",
+    "scale_name":"BIA",
+    "scale_construct":"1d",
+    "scale_direction":"FWD",
+    "item_text":"I am ugly.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_12"
+  },
+  {
+    "itemID":"45",
+    "sort_order":"123",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"I have a hard time controlling my worry.",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_03"
+  },
+  {
+    "itemID":"43",
+    "sort_order":"37",
+    "scale_name":"BIA",
+    "scale_construct":"1d",
+    "scale_direction":"FWD",
+    "item_text":"I spend a lot of time telling myself negative things about my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_10"
+  },
+  {
+    "itemID":"42",
+    "sort_order":"78",
+    "scale_name":"PoSI",
+    "scale_construct":"2.i",
+    "scale_direction":"FWD",
+    "item_text":"My weight has changed recently without much explanation.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_14"
+  },
+  {
+    "itemID":"41",
+    "sort_order":"85",
+    "scale_name":"PoSI",
+    "scale_construct":"2.ki",
+    "scale_direction":"FWD",
+    "item_text":"I get so stressed out that I feel pain, pressure or tightness in my chest.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_15"
+  },
+  {
+    "itemID":"11",
+    "sort_order":"13",
+    "scale_name":"EBI",
+    "scale_construct":"1.e.iii",
+    "scale_direction":"FWD",
+    "item_text":"I have tried many 'fad' diets (e.g., South Beach, Jenny Craig, the Hollywood diet, etc).",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_08"
+  },
+  {
+    "itemID":"12",
+    "sort_order":"11",
+    "scale_name":"EBI",
+    "scale_construct":"2.b.ii",
+    "scale_direction":"FWD",
+    "item_text":"I try to eat alone whenever possible.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_17"
+  },
+  {
+    "itemID":"13",
+    "sort_order":"41",
+    "scale_name":"BIA",
+    "scale_construct":"2c",
+    "scale_direction":"FWD",
+    "item_text":"I am angry that my body is so misshapen.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_18"
+  },
+  {
+    "itemID":"14",
+    "sort_order":"88",
+    "scale_name":"PoSI",
+    "scale_construct":"4.a",
+    "scale_direction":"FWD",
+    "item_text":"I have little time for things like shopping, doing dishes, or laundry because I am too busy.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_24"
+  },
+  {
+    "itemID":"15",
+    "sort_order":"16",
+    "scale_name":"EBI",
+    "scale_construct":"1.b",
+    "scale_direction":"FWD",
+    "item_text":"I often eat more than I should in one sitting.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_02"
+  },
+  {
+    "itemID":"16",
+    "sort_order":"102",
+    "scale_name":"RCQ15",
+    "scale_construct":"1",
+    "scale_direction":"FWD",
+    "item_text":"There is nothing in my life that I want to change.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_02"
+  },
+  {
+    "itemID":"17",
+    "sort_order":"14",
+    "scale_name":"EBI",
+    "scale_construct":"1.f",
+    "scale_direction":"FWD",
+    "item_text":"I usually eat dinner late in the evening.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_09"
+  },
+  {
+    "itemID":"18",
+    "sort_order":"48",
+    "scale_name":"BIA",
+    "scale_construct":"3h",
+    "scale_direction":"FWD",
+    "item_text":"When I interact with people, I feel anxious.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_29"
+  },
+  {
+    "itemID":"19",
+    "sort_order":"3",
+    "scale_name":"EBI",
+    "scale_construct":"3.a",
+    "scale_direction":"FWD",
+    "item_text":"I am embarrassed by how much I eat.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_24"
+  },
+  {
+    "itemID":"20",
+    "sort_order":"122",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"For the last 6 months I have been very worried about almost everything in my life.",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_02"
+  },
+  {
+    "itemID":"21",
+    "sort_order":"111",
+    "scale_name":"RCQ15",
+    "scale_construct":"5",
+    "scale_direction":"FWD",
+    "item_text":"I try to stay motivated to maintain the change I have made.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_15"
+  },
+  {
+    "itemID":"22",
+    "sort_order":"74",
+    "scale_name":"PoSI",
+    "scale_construct":"1.a",
+    "scale_direction":"FWD",
+    "item_text":"I have been feeling stressed by the same things for quite some time.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_02"
+  },
+  {
+    "itemID":"23",
+    "sort_order":"120",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"Over the last two weeks, I have felt mostly sad.",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_09"
+  },
+  {
+    "itemID":"24",
+    "sort_order":"118",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"I have had a hard time concentrating on simple tasks like reading or watching TV.",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_07"
+  },
+  {
+    "itemID":"25",
+    "sort_order":"65",
+    "scale_name":"BIA",
+    "scale_construct":"2a",
+    "scale_direction":"FWD",
+    "item_text":"I often feel sad because I don't like my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_17"
+  },
+  {
+    "itemID":"26",
+    "sort_order":"81",
+    "scale_name":"PoSI",
+    "scale_construct":"3",
+    "scale_direction":"FWD",
+    "item_text":"I am bothered by the stress in my life.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_16"
+  },
+  {
+    "itemID":"27",
+    "sort_order":"9",
+    "scale_name":"EBI",
+    "scale_construct":"3.c",
+    "scale_direction":"FWD",
+    "item_text":"Snacking helps me control my stress or emotions.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_33"
+  },
+  {
+    "itemID":"28",
+    "sort_order":"92",
+    "scale_name":"PoSI",
+    "scale_construct":"2.e",
+    "scale_direction":"FWD",
+    "item_text":"My blood pressure is not at a healthy level.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_10"
+  },
+  {
+    "itemID":"29",
+    "sort_order":"40",
+    "scale_name":"BIA",
+    "scale_construct":"3h",
+    "scale_direction":"FWD",
+    "item_text":"I am uncomfortable being out in public areas.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_28"
+  },
+  {
+    "itemID":"30",
+    "sort_order":"59",
+    "scale_name":"BIA",
+    "scale_construct":"1f",
+    "scale_direction":"FWD",
+    "item_text":"I have low self-esteem because I don't like my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_15"
+  },
+  {
+    "itemID":"31",
+    "sort_order":"108",
+    "scale_name":"RCQ15",
+    "scale_construct":"2",
+    "scale_direction":"FWD",
+    "item_text":"I am not strongly committed to making any positive changes right now.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_06"
+  },
+  {
+    "itemID":"32",
+    "sort_order":"44",
+    "scale_name":"BIA",
+    "scale_construct":"3b",
+    "scale_direction":"FWD",
+    "item_text":"I go out of my way to avoid seeing myself (i.e., in mirrors or reflective surfaces).",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_22"
+  },
+  {
+    "itemID":"33",
+    "sort_order":"93",
+    "scale_name":"PoSI",
+    "scale_construct":"2.c",
+    "scale_direction":"FWD",
+    "item_text":"Sometimes I feel too stressed out to sleep.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_09"
+  },
+  {
+    "itemID":"34",
+    "sort_order":"63",
+    "scale_name":"BIA",
+    "scale_construct":"1a",
+    "scale_direction":"FWD",
+    "item_text":"I am too fat and overweight.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_01"
+  },
+  {
+    "itemID":"35",
+    "sort_order":"80",
+    "scale_name":"PoSI",
+    "scale_construct":"5.d",
+    "scale_direction":"FWD",
+    "item_text":"I can't spend much time with friends lately because I am too busy.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_29"
+  },
+  {
+    "itemID":"36",
+    "sort_order":"124",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"I am irritable much of the time.",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_04"
+  },
+  {
+    "itemID":"37",
+    "sort_order":"91",
+    "scale_name":"PoSI",
+    "scale_construct":"3.b",
+    "scale_direction":"FWD",
+    "item_text":"I feel very anxious about the stressors in my life.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_19"
+  },
+  {
+    "itemID":"38",
+    "sort_order":"76",
+    "scale_name":"PoSI",
+    "scale_construct":"1.b",
+    "scale_direction":"FWD",
+    "item_text":"There are many things that cause stress in my life.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_03"
+  },
+  {
+    "itemID":"39",
+    "sort_order":"34",
+    "scale_name":"EBI",
+    "scale_construct":"2.b.i",
+    "scale_direction":"FWD",
+    "item_text":"I eat until I am uncomfortable or in pain.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_15"
+  },
+  {
+    "itemID":"40",
+    "sort_order":"50",
+    "scale_name":"BIA",
+    "scale_construct":"1a",
+    "scale_direction":"FWD",
+    "item_text":"My body is not the right shape or size.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_03"
+  },
+  {
+    "itemID":"51",
+    "sort_order":"20",
+    "scale_name":"EBI",
+    "scale_construct":"3.b",
+    "scale_direction":"FWD",
+    "item_text":"I diet almost constantly.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_30"
+  },
+  {
+    "itemID":"52",
+    "sort_order":"70",
+    "scale_name":"PoSI",
+    "scale_construct":"4",
+    "scale_direction":"FWD",
+    "item_text":"I am so overwhelmed by stress that I have a hard time getting things done.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_22"
+  },
+  {
+    "itemID":"53",
+    "sort_order":"104",
+    "scale_name":"RCQ15",
+    "scale_construct":"3",
+    "scale_direction":"FWD",
+    "item_text":"I am ready to make change and am preparing to do so.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_08"
+  },
+  {
+    "itemID":"54",
+    "sort_order":"1",
+    "scale_name":"EBI",
+    "scale_construct":"3.c",
+    "scale_direction":"FWD",
+    "item_text":"When I have had a bad day, I often turn to food for comfort.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_32"
+  },
+  {
+    "itemID":"55",
+    "sort_order":"75",
+    "scale_name":"PoSI",
+    "scale_construct":"3.a",
+    "scale_direction":"FWD",
+    "item_text":"I have felt depressed more than 6 of the last 14 days.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_18"
+  },
+  {
+    "itemID":"56",
+    "sort_order":"58",
+    "scale_name":"BIA",
+    "scale_construct":"3e",
+    "scale_direction":"FWD",
+    "item_text":"I camouflage or hide the part(s) of my body I dislike.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_25"
+  },
+  {
+    "itemID":"57",
+    "sort_order":"106",
+    "scale_name":"RCQ15",
+    "scale_construct":"5",
+    "scale_direction":"FWD",
+    "item_text":"I am usually effective at maintaining changes once I have been doing them for a few months.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_14"
+  },
+  {
+    "itemID":"58",
+    "sort_order":"97",
+    "scale_name":"RCQ15",
+    "scale_construct":"1",
+    "scale_direction":"FWD",
+    "item_text":"I don't feel that I have any problems that need changing.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_01"
+  },
+  {
+    "itemID":"59",
+    "sort_order":"127",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"I worry excessively about multiple things.",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_09"
+  },
+  {
+    "itemID":"60",
+    "sort_order":"45",
+    "scale_name":"BIA",
+    "scale_construct":"2g",
+    "scale_direction":"FWD",
+    "item_text":"I feel embarrassed by my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_21"
+  },
+  {
+    "itemID":"61",
+    "sort_order":"25",
+    "scale_name":"EBI",
+    "scale_construct":"3.a",
+    "scale_direction":"FWD",
+    "item_text":"I feel guilty and depressed about my overeating.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_26"
+  },
+  {
+    "itemID":"62",
+    "sort_order":"27",
+    "scale_name":"EBI",
+    "scale_construct":"2.b.v",
+    "scale_direction":"FWD",
+    "item_text":"I feel disgusted when I think about my eating habits.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_21"
+  },
+  {
+    "itemID":"63",
+    "sort_order":"55",
+    "scale_name":"BIA",
+    "scale_construct":"1d",
+    "scale_direction":"FWD",
+    "item_text":"I hate how I look.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_11"
+  },
+  {
+    "itemID":"64",
+    "sort_order":"95",
+    "scale_name":"PoSI",
+    "scale_construct":"3.a",
+    "scale_direction":"FWD",
+    "item_text":"I often feel depressed because I am so stressed out.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_17"
+  },
+  {
+    "itemID":"65",
+    "sort_order":"6",
+    "scale_name":"EBI",
+    "scale_construct":"3.a",
+    "scale_direction":"FWD",
+    "item_text":"I use food to fill a void in my life.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_27"
+  },
+  {
+    "itemID":"66",
+    "sort_order":"10",
+    "scale_name":"EBI",
+    "scale_construct":"2.aiv",
+    "scale_direction":"FWD",
+    "item_text":"I get upset if I don't count the calories and\/or fat content in what I eat.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_14"
+  },
+  {
+    "itemID":"67",
+    "sort_order":"84",
+    "scale_name":"PoSI",
+    "scale_construct":"2.g",
+    "scale_direction":"FWD",
+    "item_text":"My body often aches or feels stiff because of stress.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_12"
+  },
+  {
+    "itemID":"68",
+    "sort_order":"36",
+    "scale_name":"EBI",
+    "scale_construct":"3.c",
+    "scale_direction":"FWD",
+    "item_text":"I eat more than usual when I feel stressed, bored, or emotional.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_31"
+  },
+  {
+    "itemID":"69",
+    "sort_order":"69",
+    "scale_name":"PoSI",
+    "scale_construct":"1.b",
+    "scale_direction":"FWD",
+    "item_text":"I recently lost my job.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_05"
+  },
+  {
+    "itemID":"70",
+    "sort_order":"22",
+    "scale_name":"EBI",
+    "scale_construct":"3.e",
+    "scale_direction":"FWD",
+    "item_text":"I have no control over my eating habits.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_34"
+  },
+  {
+    "itemID":"71",
+    "sort_order":"72",
+    "scale_name":"PoSI",
+    "scale_construct":"1",
+    "scale_direction":"FWD",
+    "item_text":"I am often overwhelmed and stressed out.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_01"
+  },
+  {
+    "itemID":"72",
+    "sort_order":"117",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"I don't think I have measured up in life.",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_06"
+  },
+  {
+    "itemID":"73",
+    "sort_order":"116",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"I see myself as a failure.",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_05"
+  },
+  {
+    "itemID":"74",
+    "sort_order":"5",
+    "scale_name":"EBI",
+    "scale_construct":"3.b",
+    "scale_direction":"FWD",
+    "item_text":"I am usually 'on a diet.'",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_29"
+  },
+  {
+    "itemID":"75",
+    "sort_order":"127",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"I don't get as much done as I could because I worry too much.",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_07"
+  },
+  {
+    "itemID":"76",
+    "sort_order":"32",
+    "scale_name":"EBI",
+    "scale_construct":"1.d.ii",
+    "scale_direction":"FWD",
+    "item_text":"I don't need to drink much water because of the other things I drink.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_05"
+  },
+  {
+    "itemID":"77",
+    "sort_order":"19",
+    "scale_name":"EBI",
+    "scale_construct":"1.c",
+    "scale_direction":"FWD",
+    "item_text":"I skip breakfast or lunch more often than I should.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_03"
+  },
+  {
+    "itemID":"78",
+    "sort_order":"73",
+    "scale_name":"PoSI",
+    "scale_construct":"5.d",
+    "scale_direction":"FWD",
+    "item_text":"My friendships suffer because of my stress.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_30"
+  },
+  {
+    "itemID":"79",
+    "sort_order":"35",
+    "scale_name":"EBI",
+    "scale_construct":"2.a.ii",
+    "scale_direction":"FWD",
+    "item_text":"I tell people I'm not hungry even when I really am.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_13"
+  },
+  {
+    "itemID":"80",
+    "sort_order":"7",
+    "scale_name":"EBI",
+    "scale_construct":"3.e",
+    "scale_direction":"FWD",
+    "item_text":"I cannot control how much I eat snacks or treats.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_35"
+  },
+  {
+    "itemID":"81",
+    "sort_order":"113",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"I have little interest in things that used to make me happy.",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_02"
+  },
+  {
+    "itemID":"82",
+    "sort_order":"105",
+    "scale_name":"RCQ15",
+    "scale_construct":"4",
+    "scale_direction":"FWD",
+    "item_text":"I know the changes I've made are noticeable, because others have commented on them.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_11"
+  },
+  {
+    "itemID":"83",
+    "sort_order":"110",
+    "scale_name":"RCQ15",
+    "scale_construct":"4",
+    "scale_direction":"FWD",
+    "item_text":"I work hard to make meaningful changes in my life.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_12"
+  },
+  {
+    "itemID":"84",
+    "sort_order":"107",
+    "scale_name":"RCQ15",
+    "scale_construct":"1",
+    "scale_direction":"FWD",
+    "item_text":"My family or friends have been pressuring me to make positive changes in my life.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_03"
+  },
+  {
+    "itemID":"85",
+    "sort_order":"39",
+    "scale_name":"BIA",
+    "scale_construct":"1e",
+    "scale_direction":"FWD",
+    "item_text":"I am obsessed with improving my health and fitness because I hate my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_14"
+  },
+  {
+    "itemID":"86",
+    "sort_order":"21",
+    "scale_name":"EBI",
+    "scale_construct":"2.b.iv",
+    "scale_direction":"FWD",
+    "item_text":"Other people talk negatively about my eating habits.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_19"
+  },
+  {
+    "itemID":"87",
+    "sort_order":"49",
+    "scale_name":"BIA",
+    "scale_construct":"3d",
+    "scale_direction":"FWD",
+    "item_text":"I avoid situations in which others may see me without all of my clothes (e.g., in a swimsuit).",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_24"
+  },
+  {
+    "itemID":"88",
+    "sort_order":"18",
+    "scale_name":"EBI",
+    "scale_construct":"3.e",
+    "scale_direction":"FWD",
+    "item_text":"I don't believe that I could change my eating habits.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_36"
+  },
+  {
+    "itemID":"89",
+    "sort_order":"54",
+    "scale_name":"BIA",
+    "scale_construct":"1c",
+    "scale_direction":"FWD",
+    "item_text":"I am embarassed by certain characteristics of my body (e.g., body hair, sweating, scars, body odor).",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_08"
+  },
+  {
+    "itemID":"90",
+    "sort_order":"60",
+    "scale_name":"BIA",
+    "scale_construct":"2d",
+    "scale_direction":"FWD",
+    "item_text":"I feel helpless in making positive changes to my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_19"
+  },
+  {
+    "itemID":"91",
+    "sort_order":"67",
+    "scale_name":"PoSI",
+    "scale_construct":"3.b",
+    "scale_direction":"FWD",
+    "item_text":"I have felt anxious more than 6 of the last 14 days.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_20"
+  },
+  {
+    "itemID":"92",
+    "sort_order":"4",
+    "scale_name":"EBI",
+    "scale_construct":"1.e.i",
+    "scale_direction":"FWD",
+    "item_text":"I often change up my diet by restricting different food groups or trying new diet plans.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_06"
+  },
+  {
+    "itemID":"93",
+    "sort_order":"66",
+    "scale_name":"BIA",
+    "scale_construct":"3h",
+    "scale_direction":"FWD",
+    "item_text":"I avoid situations where lots of people might notice me.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_30"
+  },
+  {
+    "itemID":"94",
+    "sort_order":"112",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"I don't enjoy doing things I used to do.",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_01"
+  },
+  {
+    "itemID":"95",
+    "sort_order":"15",
+    "scale_name":"EBI",
+    "scale_construct":"2.a.ii",
+    "scale_direction":"FWD",
+    "item_text":"I avoid admitting I am hungry even when I haven't eaten.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_12"
+  },
+  {
+    "itemID":"96",
+    "sort_order":"23",
+    "scale_name":"EBI",
+    "scale_construct":"2.b.i",
+    "scale_direction":"FWD",
+    "item_text":"I often feel ill after eating because I ate too much.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_16"
+  },
+  {
+    "itemID":"97",
+    "sort_order":"71",
+    "scale_name":"PoSI",
+    "scale_construct":"4.a.",
+    "scale_direction":"FWD",
+    "item_text":"I often let the housework pile up because I'm too stressed to deal with it.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_23"
+  },
+  {
+    "itemID":"98",
+    "sort_order":"77",
+    "scale_name":"PoSI",
+    "scale_construct":"2.a",
+    "scale_direction":"FWD",
+    "item_text":"I often feel fatigued.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_07"
+  },
+  {
+    "itemID":"99",
+    "sort_order":"127",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"A good word to describe my behavior most of the time would be restless.",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_08"
+  },
+  {
+    "itemID":"100",
+    "sort_order":"87",
+    "scale_name":"PoSI",
+    "scale_construct":"2.f",
+    "scale_direction":"FWD",
+    "item_text":"I am sometimes so stressed that I feel like I can't breathe.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_11"
+  },
+  {
+  "itemID":"101",
+  "sort_order":"12",
+  "scale_name":"EBI",
+  "scale_construct":"1.e.ii",
+  "scale_direction":"FWD",
+  "item_text":"I avoid eating even small amounts of some foods because I believe they will make me fat (i.e., 'carb-phobia').",
+  "scale_tblName":"scale_ebi",
+  "scale_fieldName":"ebi_item_07"
+  },
+  {
+    "itemID":"102",
+    "sort_order":"94",
+    "scale_name":"PoSI",
+    "scale_construct":"5.c.",
+    "scale_direction":"FWD",
+    "item_text":"My intimate relationships suffer because of my stress.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_28"
+  },
+  {
+    "itemID":"103",
+    "sort_order":"24",
+    "scale_name":"EBI",
+    "scale_construct":"2.a.i",
+    "scale_direction":"FWD",
+    "item_text":"I sometimes refuse to eat in order to get or stay thin.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_11"
+  },
+  {
+    "itemID":"104",
+    "sort_order":"52",
+    "scale_name":"BIA",
+    "scale_construct":"3c",
+    "scale_direction":"FWD",
+    "item_text":"I often touch or poke at my body, especially the part(s) that I most dislike.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_23"
+  },
+  {
+    "itemID":"105",
+    "sort_order":"100",
+    "scale_name":"RCQ15",
+    "scale_construct":"4",
+    "scale_direction":"FWD",
+    "item_text":"I am currently making changes in my life.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_10"
+  },
+  {
+    "itemID":"106",
+    "sort_order":"46",
+    "scale_name":"BIA",
+    "scale_construct":"1b",
+    "scale_direction":"FWD",
+    "item_text":"My body has an odd or funny shape.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_05"
+  },
+  {
+    "itemID":"107",
+    "sort_order":"29",
+    "scale_name":"EBI",
+    "scale_construct":"1.a",
+    "scale_direction":"FWD",
+    "item_text":"I do not eat a balanced diet.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_01"
+  },
+  {
+    "itemID":"108",
+    "sort_order":"101",
+    "scale_name":"RCQ15",
+    "scale_construct":"5",
+    "scale_direction":"FWD",
+    "item_text":"I work hard to make sure I don't revert back to old behaviors once I've made changes.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_13"
+  },
+  {
+    "itemID":"109",
+    "sort_order":"51",
+    "scale_name":"BIA",
+    "scale_construct":"1a",
+    "scale_direction":"FWD",
+    "item_text":"I am not content with my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_02"
+  },
+  {
+    "itemID":"110",
+    "sort_order":"47",
+    "scale_name":"BIA",
+    "scale_construct":"3h",
+    "scale_direction":"FWD",
+    "item_text":"I limit my interaction with others in order to hide my defects.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_26"
+  },
+  {
+    "itemID":"111",
+    "sort_order":"103",
+    "scale_name":"RCQ15",
+    "scale_construct":"2",
+    "scale_direction":"FWD",
+    "item_text":"I have been thinking seriously about how to make the changes I want in my life.",
+    "scale_tblName":"scale_rcq",
+    "scale_fieldName":"rcq_item_05"
+  },
+  {
+    "itemID":"112",
+    "sort_order":"56",
+    "scale_name":"BIA",
+    "scale_construct":"1e",
+    "scale_direction":"FWD",
+    "item_text":"I am preoccupied with thoughts of how flabby or unfit I am.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_13"
+  },
+  {
+    "itemID":"113",
+    "sort_order":"64",
+    "scale_name":"BIA",
+    "scale_construct":"2e",
+    "scale_direction":"FWD",
+    "item_text":"I am often disgusted when I see my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_20"
+  },
+  {
+    "itemID":"114",
+    "sort_order":"33",
+    "scale_name":"EBI",
+    "scale_construct":"1.d.i",
+    "scale_direction":"FWD",
+    "item_text":"Sometimes I get dehydrated because I don't drink enough water.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_04"
+  },
+  {
+    "itemID":"115",
+    "sort_order":"115",
+    "scale_name":"BDSI-9",
+    "scale_construct":"dep",
+    "scale_direction":"FWD",
+    "item_text":"I feel hopeless much of the time.",
+    "scale_tblName":"scale_bdsi",
+    "scale_fieldName":"bdsi_item_04"
+  },
+  {
+    "itemID":"116",
+    "sort_order":"43",
+    "scale_name":"BIA",
+    "scale_construct":"1a",
+    "scale_direction":"FWD",
+    "item_text":"My life would be better if I were thinner.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_04"
+  },
+  {
+    "itemID":"117",
+    "sort_order":"96",
+    "scale_name":"PoSI",
+    "scale_construct":"3.c",
+    "scale_direction":"FWD",
+    "item_text":"I have had a panic attack recently.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_21"
+  },
+  {
+    "itemID":"118",
+    "sort_order":"28",
+    "scale_name":"EBI",
+    "scale_construct":"3.a",
+    "scale_direction":"FWD",
+    "item_text":"I have a hard time controlling what I eat.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_23"
+  },
+  {
+    "itemID":"119",
+    "sort_order":"89",
+    "scale_name":"PoSI",
+    "scale_construct":"5.a",
+    "scale_direction":"FWD",
+    "item_text":"I often feel too tired to go out and have fun because my day has been so stressful.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_27"
+  },
+  {
+    "itemID":"120",
+    "sort_order":"82",
+    "scale_name":"PoSI",
+    "scale_construct":"4.c",
+    "scale_direction":"FWD",
+    "item_text":"I don't always have time for grooming (e.g., shaving, clipping nails, etc) because of the stressors in my life.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_25"
+  },
+  {
+    "itemID":"121",
+    "sort_order":"62",
+    "scale_name":"BIA",
+    "scale_construct":"1d",
+    "scale_direction":"FWD",
+    "item_text":"I am undesirable.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_09"
+  },
+  {
+    "itemID":"122",
+    "sort_order":"26",
+    "scale_name":"EBI",
+    "scale_construct":"2.b.vi",
+    "scale_direction":"FWD",
+    "item_text":"I struggle with weight gain because I can't control how much I eat.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_22"
+  },
+  {
+    "itemID":"123",
+    "sort_order":"121",
+    "scale_name":"BASI-9",
+    "scale_construct":"anx",
+    "scale_direction":"FWD",
+    "item_text":"I have felt anxious for the last six months.",
+    "scale_tblName":"scale_basi",
+    "scale_fieldName":"basi_item_01"
+  },
+  {
+    "itemID":"124",
+    "sort_order":"68",
+    "scale_name":"PoSI",
+    "scale_construct":"1.b",
+    "scale_direction":"FWD",
+    "item_text":"I recently went through a divorce or breakup.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_06"
+  },
+  {
+    "itemID":"125",
+    "sort_order":"57",
+    "scale_name":"BIA",
+    "scale_construct":"3h",
+    "scale_direction":"FWD",
+    "item_text":"I avoid leaving the house as much as possible because of my body.",
+    "scale_tblName":"scale_bia",
+    "scale_fieldName":"bia_item_27"
+  },
+  {
+    "itemID":"126",
+    "sort_order":"8",
+    "scale_name":"EBI",
+    "scale_construct":"3.a",
+    "scale_direction":"FWD",
+    "item_text":"When I gorge myself on food I feel almost numb or like I am on 'auto-pilot.'",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_25"
+  },
+  {
+    "itemID":"127",
+    "sort_order":"2",
+    "scale_name":"EBI",
+    "scale_construct":"1.f",
+    "scale_direction":"FWD",
+    "item_text":"I often snack after dark.",
+    "scale_tblName":"scale_ebi",
+    "scale_fieldName":"ebi_item_10"
+  },
+  {
+    "itemID":"128",
+    "sort_order":"83",
+    "scale_name":"PoSI",
+    "scale_construct":"2.h",
+    "scale_direction":"FWD",
+    "item_text":"I regularly have an upset stomach due to stress.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_13"
+  },
+  {
+    "itemID":"129",
+    "sort_order":"90",
+    "scale_name":"PoSI",
+    "scale_construct":"5.a",
+    "scale_direction":"FWD",
+    "item_text":"Because of the things that stress me out, I have little time for social activities.",
+    "scale_tblName":"scale_posi",
+    "scale_fieldName":"posi_item_26"
+  }
+]

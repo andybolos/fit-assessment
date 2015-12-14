@@ -1,0 +1,40 @@
+<div class="quizlet text-center">
+    <div ng-show="start">
+        <h2>You are about to start the {{ assessment }} assessment.</h2>
+        <button type="button" name="button" class="btn btn-primary" ng-click="start()">Start Assessment</button>
+    </div>
+    <div ng-show="inProgress">
+        <h2>Question {{ x }} of {{ y }} </h2>
+        <h3>{{ question.item_text }}</h3>
+        <div class="scale_rating">
+            <form class="" name="scale_rating" novalidate>
+                <label>
+                    <input type="radio" name="scale" ng-value="1" ng-model="scale.answer" required>Strongly Disagree
+                </label>
+                <label>
+                    <input type="radio" name="scale" ng-value="2" ng-model="scale.answer" ng-required="true">Disagree
+                </label>
+                <label>
+                    <input type="radio" name="scale" ng-value="3" ng-model="scale.answer" ng-required="true">Slightly Disagree
+                </label>
+                <label>
+                    <input type="radio" name="scale" ng-value="4" ng-model="scale.answer" ng-required="true">Slightly Agree
+                </label>
+                <label>
+                    <input type="radio" name="scale" ng-value="5" ng-model="scale.answer" ng-required="true">Agree
+                </label>
+                <label>
+                    <input type="radio" name="scale" ng-value="6" ng-model="scale.answer" ng-required="true">Strongly Agree
+                </label>
+            </form>
+        </div>
+        <button class="btn btn-primary" type="submit" name="button" ng-disabled="!scale" ng-click="next(scale.answer)">Next</button>
+    </div>
+    <div ng-show="results">
+        <h2>Complete!</h2>
+        <h4>Thanks for completing the assessment. A link to your results has been emailed to you.</h4>
+        <button class="btn btn-primary" type="button" name="button" ng-click="showScore()">Show Score</button>
+        <h3>{{ score }}</h3>
+        <a href="#home">Return Home</a>
+    </div>
+</div>

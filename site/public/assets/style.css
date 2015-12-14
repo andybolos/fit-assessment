@@ -1,0 +1,13 @@
+.mycontainer {
+  padding: 25px; }
+
+.quizlet {
+  border: #000 1px solid;
+  min-height: 400px; }
+
+.rating_scale {
+  display: inline-flex;
+  padding: 25px;
+  font-size: 18px; }
+
+/*# sourceMappingURL=style.css.map */

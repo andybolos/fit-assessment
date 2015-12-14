@@ -1,0 +1,43 @@
+/** 
+*   InteraFit Item Content 
+*   Copyright InteraSolutions, Inc. 
+*/
+
+[
+  {
+    "item_id":"bdsi_item_01",
+    "item_text":"I don't enjoy doing things I used to do."
+  },
+  {
+    "item_id":"bdsi_item_02",
+    "item_text":"I have little interest in things that used to make me happy."
+  },
+  {
+    "item_id":"bdsi_item_03",
+    "item_text":"I have been very fidgety and restless lately. "
+  },
+  {
+    "item_id":"bdsi_item_04",
+    "item_text":"I feel hopeless much of the time."
+  },
+  {
+    "item_id":"bdsi_item_05",
+    "item_text":"I see myself as a failure."
+  },
+  {
+    "item_id":"bdsi_item_06",
+    "item_text":"I don't think I have measured up in life."
+  },
+  {
+    "item_id":"bdsi_item_07",
+    "item_text":"I have had a hard time concentrating on simple tasks like reading or watching TV."
+  },
+  {
+    "item_id":"bdsi_item_08",
+    "item_text":"Even when things are going right, I feel sad and depressed."
+  },
+  {
+    "item_id":"bdsi_item_09",
+    "item_text":"Over the last two weeks, I have felt mostly sad."
+  }
+]

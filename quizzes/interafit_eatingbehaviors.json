@@ -1,0 +1,150 @@
+/** 
+*   InteraFit Item Content 
+*   Copyright InteraSolutions, Inc. 
+*/
+
+[
+  {
+    "item_id":" ebi_item_01",
+    "item_text":"I do not eat a balanced diet."
+  },
+  {
+    "item_id":"ebi_item_02",
+    "item_text":"I often eat more than I should in one sitting."
+  },
+  {
+    "item_id":"ebi_item_03",
+    "item_text":"I skip breakfast or lunch more often than I should."
+  },
+  {
+    "item_id":"ebi_item_04",
+    "item_text":"Sometimes I get dehydrated because I don't drink enough water."
+  },
+  {
+    "item_id":"ebi_item_05",
+    "item_text":"I don't need to drink much water because of the other things I drink."
+  },
+  {
+    "item_id":"ebi_item_06",
+    "item_text":"I often change up my diet by restricting different food groups or trying new diet plans."
+  },
+  {
+    "item_id":"ebi_item_07",
+    "item_text":"I avoid eating even small amounts of some foods because I believe they will make me fat (i.e., 'carb-phobia')."
+  },
+  {
+    "item_id":"ebi_item_08",
+    "item_text":"I have tried many 'fad' diets (e.g., South Beach, Jenny Craig, the Hollywood diet, etc)."
+  },
+  {
+    "item_id":"ebi_item_09",
+    "item_text":"I usually eat dinner late in the evening."
+  },
+  {
+    "item_id":"ebi_item_10",
+    "item_text":"I often snack after dark."
+  },
+  {
+    "item_id":"ebi_item_11",
+    "item_text":"I sometimes refuse to eat in order to get or stay thin."
+  },
+  {
+    "item_id":"ebi_item_12",
+    "item_text":"I avoid admitting I am hungry even when I haven't eaten."
+  },
+  {
+    "item_id":"ebi_item_13",
+    "item_text":"I tell people I'm not hungry even when I really am."
+  },
+  {
+    "item_id":"ebi_item_14",
+    "item_text":"I get upset if I don't count the calories and/or fat content in what I eat."
+  },
+  {
+    "item_id":"ebi_item_15",
+    "item_text":"I eat until I am uncomfortable or in pain."
+  },
+  {
+    "item_id":"ebi_item_16",
+    "item_text":"I often feel ill after eating because I ate too much."
+  },
+  {
+    "item_id":"ebi_item_17",
+    "item_text":"I try to eat alone whenever possible."
+  },{
+    "item_id":"ebi_item_18",
+    "item_text":"I try to vomit after eating because I feel disgusted with myself."
+  },
+  {
+    "item_id":"ebi_item_19",
+    "item_text":"Other people talk negatively about my eating habits."
+  },
+  {
+    "item_id":"ebi_item_20",
+    "item_text":"I am ashamed of how much I eat."
+  },
+  {
+    "item_id":"ebi_item_21",
+    "item_text":"I feel disgusted when I think about my eating habits."
+  },
+  {
+    "item_id":"ebi_item_22",
+    "item_text":"I struggle with weight gain because I can't control how much I eat."
+  },
+  {
+    "item_id":"ebi_item_23",
+    "item_text":"I have a hard time controlling what I eat."
+  },
+  {
+    "item_id":"ebi_item_24",
+    "item_text":"I am embarrassed by how much I eat."
+  },
+  {
+    "item_id":"ebi_item_25",
+    "item_text":"When I gorge myself on food I feel almost numb or like I am on 'auto-pilot.'"
+  },
+  {
+    "item_id":"ebi_item_26",
+    "item_text":"I feel guilty and depressed about my overeating."
+  },
+  {
+    "item_id":"ebi_item_27",
+    "item_text":"I use food to fill a void in my life."
+  },
+  {
+    "item_id":"ebi_item_28",
+    "item_text":"I feel disgusted with myself because of my overeating."
+  },
+  {
+    "item_id":"ebi_item_29",
+    "item_text":"I am usually 'on a diet.'"
+  },
+  {
+    "item_id":"ebi_item_30",
+    "item_text":"I diet almost constantly."
+  },
+  {
+    "item_id":"ebi_item_31",
+    "item_text":"I eat more than usual when I feel stressed, bored, or emotional."
+  },
+  {
+    "item_id":"ebi_item_32",
+    "item_text":"When I have had a bad day, I often turn to food for comfort."
+  },
+  {
+    "item_id":"ebi_item_33",
+    "item_text":"Snacking helps me control my stress or emotions."
+  },
+  {
+    "item_id":"ebi_item_34",
+    "item_text":"I have no control over my eating habits."
+  },
+  {
+    "item_id":"ebi_item_35",
+    "item_text":"I cannot control how much I eat snacks or treats."
+  },
+  {
+    "item_id":"ebi_item_36",
+    "item_text":"I don't believe that I could change my eating habits."
+  }
+]

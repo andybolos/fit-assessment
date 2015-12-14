@@ -1,0 +1,43 @@
+/**
+*   InteraFit Item Content
+*   Copyright InteraSolutions, Inc.
+*/
+
+[
+  {
+    "item_id":"basi_item_01",
+    "item_text":"I have felt anxious for the last six months."
+  },
+  {
+    "item_id":"basi_item_02",
+    "item_text":"For the last 6 months I have been very worried about almost everything in my life."
+  },
+  {
+    "item_id":"basi_item_03",
+    "item_text":"I have a hard time controlling my worry."
+  },
+  {
+    "item_id":"basi_item_04",
+    "item_text":"I am irritable much of the time."
+  },
+  {
+    "item_id":"basi_item_05",
+    "item_text":"My muscles often feel tense. "
+  },
+  {
+    "item_id":"basi_item_06",
+    "item_text":"People tell me to relax more often."
+  },
+  {
+    "item_id":"basi_item_07",
+    "item_text":"I don't get as much done as I could because I worry too much."
+  },
+  {
+    "item_id":"basi_item_08",
+    "item_text":"A good word to describe my behavior most of the time would be restless."
+  },
+  {
+    "item_id":"basi_item_09",
+    "item_text":"I worry excessively about multiple things."
+  }
+]

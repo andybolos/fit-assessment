@@ -1,0 +1,127 @@
+/** 
+*   InteraFit Item Content 
+*   Copyright InteraSolutions, Inc. 
+*/
+
+[
+  {
+    "item_id":"bia_item_01",
+    "item_text":"I am too fat and overweight."
+  }, 
+  {
+    "item_id":"bia_item_02",
+    "item_text":"I am not content with my body."
+  },
+  {
+    "item_id":"bia_item_03",
+    "item_text":"My body is not the right shape or size."
+  },
+  {
+    "item_id":"bia_item_04",
+    "item_text":"My life would be better if I were thinner."
+  },
+  {
+    "item_id":"bia_item_05",
+    "item_text":"My body has an odd or funny shape."
+  },
+  {
+    "item_id":"bia_item_06",
+    "item_text":"I do not like the shape of my body. "
+  },
+  {
+    "item_id":"bia_item_07",
+    "item_text":"There are certain aspects of my body that I find disgusting (e.g., body hair, sweating, scars, body odor)."
+  },
+  {
+    "item_id":"bia_item_08",
+    "item_text":"I am embarassed by certain characteristics of my body (e.g., body hair, sweating, scars, body odor)."
+  },
+  {
+    "item_id":"bia_item_09",
+    "item_text":"I am undesirable."
+  },
+  {
+    "item_id":"bia_item_10",
+    "item_text":"I spend a lot of time telling myself negative things about my body."
+  },
+  {
+    "item_id":"bia_item_11",
+    "item_text":"I hate how I look."
+  },
+  {
+    "item_id":"bia_item_12",
+    "item_text":"I am ugly."
+  },
+  {
+    "item_id":"bia_item_13",
+    "item_text":"I am preoccupied with thoughts of how flabby or unfit I am."
+  },
+  {
+    "item_id":"bia_item_14",
+    "item_text":"I am obsessed with improving my health and fitness because I hate my body."
+  },
+  {
+    "item_id":"bia_item_15",
+    "item_text":"I have low self-esteem because I don't like my body."
+  },
+  {
+    "item_id":"bia_item_16",
+    "item_text":"The shame I feel about my body keeps me from doing things I enjoy."
+  },
+  {
+    "item_id":"bia_item_17",
+    "item_text":"I often feel sad because I don't like my body."
+  },
+  {
+    "item_id":"bia_item_18",
+    "item_text":"I am angry that my body is so misshapen."
+  }, 
+  {
+    "item_id":"bia_item_19",
+    "item_text":"I feel helpless in making positive changes to my body."
+  },
+  {
+    "item_id":"bia_item_20",
+    "item_text":"I am often disgusted when I see my body."
+  },
+  {
+    "item_id":"bia_item_21",
+    "item_text":"I feel embarrassed by my body."
+  },
+  {
+    "item_id":"bia_item_22",
+    "item_text":"I go out of my way to avoid seeing myself (i.e., in mirrors or reflective surfaces)."
+  },
+  {
+    "item_id":"bia_item_23",
+    "item_text":"I often touch or poke at my body, especially the part(s) that I most dislike."
+  },
+  {
+    "item_id":"bia_item_24",
+    "item_text":"I avoid situations in which others may see me without all of my clothes (e.g., in a swimsuit)."
+  },
+  {
+    "item_id":"bia_item_25",
+    "item_text":"I camouflage or hide the part(s) of my body I dislike."
+  },
+  {
+    "item_id":"bia_item_26",
+    "item_text":"I limit my interaction with others in order to hide my defects."
+  },
+  {
+    "item_id":"bia_item_27",
+    "item_text":"I avoid leaving the house as much as possible because of my body."
+  },
+  {
+    "item_id":"bia_item_28",
+    "item_text":"I am uncomfortable being out in public areas."
+  },
+  {
+    "item_id":"bia_item_29",
+    "item_text":"When I interact with people, I feel anxious."
+  },
+  {
+    "item_id":"bia_item_30",
+    "item_text":"I avoid situations where lots of people might notice me."
+  },
+]

@@ -1,0 +1,20 @@
+<div class="mycontainer">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="nav navbar-header">
+                <a ui-sref="home">
+                    <img src="../assets/logo.png" alt="" />
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <div>
+            <ul>
+                <li ng-repeat="assessment in list"><a ng-click="getAssessment(assessment)">{{ assessment.title }}</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>

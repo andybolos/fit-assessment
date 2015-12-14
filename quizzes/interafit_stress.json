@@ -1,0 +1,127 @@
+/** 
+*   InteraFit Item Content 
+*   Copyright InteraSolutions, Inc. 
+*/
+
+[
+  {
+    "item_id":"posi_item_01",
+    "item_text":"I am often overwhelmed and stressed out."
+  },
+  {
+    "item_id":"posi_item_02",
+    "item_text":"I have been feeling stressed by the same things for quite some time."
+  },
+  {
+    "item_id":"posi_item_03",
+    "item_text":"There are many things that cause stress in my life."
+  },
+  {
+    "item_id":"posi_item_04",
+    "item_text":"I have recently suffered the death of a loved one."
+  },
+  {
+    "item_id":"posi_item_05",
+    "item_text":"I recently lost my job."
+  },
+  {
+    "item_id":"posi_item_06",
+    "item_text":"I recently went through a divorce or breakup."
+  },
+  {
+    "item_id":"posi_item_07",
+    "item_text":"I often feel fatigued."
+  },
+  {
+    "item_id":"posi_item_08",
+    "item_text":"My appetite has changed recently because of stress."
+  },
+  {
+    "item_id":"posi_item_09",
+    "item_text":"Sometimes I feel too stressed out to sleep."
+  },  
+  {
+    "item_id":"posi_item_10",
+    "item_text":"My blood pressure is not at a healthy level."
+  },
+  {
+    "item_id":"posi_item_11",
+    "item_text":"I am sometimes so stressed that I feel like I can't breathe."
+  },
+  {
+    "item_id":"posi_item_12",
+    "item_text":"My body often aches or feels stiff because of stress."
+  },
+  {
+    "item_id":"posi_item_13",
+    "item_text":"I regularly have an upset stomach due to stress."
+  },
+  {
+    "item_id":"posi_item_14",
+    "item_text":"My weight has changed recently without much explanation."
+  },
+  {
+    "item_id":"posi_item_15",
+    "item_text":"I get so stressed out that I feel pain, pressure or tightness in my chest."
+  },
+  {
+    "item_id":"posi_item_16",
+    "item_text":"I am bothered by the stress in my life."
+  },
+  {
+    "item_id":"posi_item_17",
+    "item_text":"I often feel depressed because I am so stressed out."
+  },
+  {
+    "item_id":"posi_item_18",
+    "item_text":"I have felt depressed more than 6 of the last 14 days."
+  },
+  {
+    "item_id":"posi_item_19",
+    "item_text":"I feel very anxious about the stressors in my life."
+  },
+  {
+    "item_id":"posi_item_20",
+    "item_text":"I have felt anxious more than 6 of the last 14 days."
+  },
+  {
+    "item_id":"posi_item_21",
+    "item_text":"I have had a panic attack recently."
+  },
+  {
+    "item_id":"posi_item_22",
+    "item_text":"I am so overwhelmed by stress that I have a hard time getting things done."
+  },
+  {
+    "item_id":"posi_item_23",
+    "item_text":"I often let the housework pile up because I'm too stressed to deal with it."
+  },
+  {
+    "item_id":"posi_item_24",
+    "item_text":"I have little time for things like shopping, doing dishes, or laundry because I am too busy."
+  },
+  {
+    "item_id":"posi_item_25",
+    "item_text":"I don't always have time for grooming (e.g., shaving, clipping nails, etc) because of the stressors in my life."
+  },
+  {
+    "item_id":"posi_item_26",
+    "item_text":"Because of the things that stress me out, I have little time for social activities."
+  }
+  {
+    "item_id":"posi_item_27",
+    "item_text":"I often feel too tired to go out and have fun because my day has been so stressful."
+  },
+  {
+    "item_id":"posi_item_28",
+    "item_text":"My intimate relationships suffer because of my stress."
+  },
+  {
+    "item_id":"posi_item_29",
+    "item_text":"I can't spend much time with friends lately because I am too busy."
+  },
+  {
+    "item_id":"posi_item_30",
+    "item_text":"My friendships suffer because of my stress."
+  }
+]
