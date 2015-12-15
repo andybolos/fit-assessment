@@ -1,4 +1,4 @@
-app.controller('landingCtrl', function($scope, mainService, assessments, $state) {
+app.controller('listCtrl', function($scope, mainService, assessments, $state) {
 
     var bag = mainService.getMyAssessments();
 

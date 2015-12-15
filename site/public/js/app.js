@@ -23,9 +23,9 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: '../views/assesment.html',
             controller: 'questionCtrl'
         })
-        .state('landing', {
-            url: '/landing',
-            templateUrl: '../views/landing.html',
-            controller: 'landingCtrl'
+        .state('list', {
+            url: '/list',
+            templateUrl: '../views/list.html',
+            controller: 'listCtrl'
         });
 });
