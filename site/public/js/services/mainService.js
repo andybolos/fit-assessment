@@ -15,7 +15,7 @@ app.service('mainService', function($state) {
 
     this.makePayment = function(cartAssessment) {
         myAssessments = cartAssessment
-        $state.go('landing');
+        $state.go('list');
     }
 
     this.getMyAssessments = function() {

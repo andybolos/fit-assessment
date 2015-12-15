@@ -30,6 +30,9 @@ app.use(express.static('./public'));
 app.use(cors());
 
 //**********  Endpoints  **********//
+
+// app.post('/api/submitFreeAssessment', AssessmentCtrl.addFreeAssessment);
+
 //TODO (jcd 12/15) match endpoints with front end
 app.get('/api/getAssessment', AssessmentCtrl.getAssessment);
 

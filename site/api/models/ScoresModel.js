@@ -1,13 +1,13 @@
 var Mongoose = require('mongoose');
 var Schema = Mongoose.Schema;
 
-var Assessment = new Schema({
-	quiz_id: String,
+var Score = new Schema({
+	item_id: String,
 	item_text: String,
-	assessment_type: {
+	Score_type: {
 		type: String,
 		enum: ['Individual', 'Promo']
 	}
 });
 
-module.exports = Mongoose.model('Assessment', Assessment);
+module.exports = Mongoose.model('Score', Score);
