@@ -1,8 +1,6 @@
-app.controller('dashboardCtrl', function($scope) {
+app.service('mainService', function() {
 
-    $scope.test = "Test";
-
-    $scope.clients = [{
+    var clients = [{
         name: 'Dan Smith',
         email: 'dan@smith.com',
         code: 'fit4lyfe',
@@ -32,4 +30,8 @@ app.controller('dashboardCtrl', function($scope) {
         total: 39
     }];
 
-})
+    this.clients = function() {
+        return clients;
+    };
+
+});

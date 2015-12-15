@@ -10,4 +10,13 @@
   padding: 25px;
   font-size: 18px; }
 
+.logo {
+  height: 100px; }
+
+a {
+  color: #3399cc; }
+
+.btn-primary {
+  background-color: #3399cc; }
+
 /*# sourceMappingURL=style.css.map */

@@ -6,8 +6,8 @@ app.service('mainService', function($state) {
 
     this.checkout = function(assessments) {
         $state.go('checkout');
-        bag = assessments;
-    };
+        bag = assessments
+    }
 
     this.cart = function() {
         return bag;

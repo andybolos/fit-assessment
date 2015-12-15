@@ -1,3 +1,5 @@
+$blue: #3399cc;
+
 .mycontainer {
     padding: 25px;
 }
@@ -11,5 +13,16 @@
     display: inline-flex;
     padding: 25px;
     font-size: 18px;
+}
 
+.logo {
+    height: 100px;
+}
+
+a {
+    color: $blue;
+}
+
+.btn-primary {
+    background-color: $blue;
 }

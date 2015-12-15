@@ -27,5 +27,16 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/list',
             templateUrl: '../views/list.html',
             controller: 'listCtrl'
-        });
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: '../views/login.html',
+            controller: 'loginCtrl'
+        })
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: '../views/dashboard.html',
+            controller: 'dashboardCtrl'
+        })
+
 });
