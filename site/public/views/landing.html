@@ -12,7 +12,9 @@
     <div>
         <div>
             <ul>
-                <li ng-repeat="assessment in list"><a ng-click="getAssessment(assessment)">{{ assessment.title }}</a></li>
+                <div ng-repeat="assessment in list">
+                    <a href="" ng-click="getAssessment(assessment)">{{ assessment.title }}</a>
+                </div>
             </ul>
         </div>
     </div>

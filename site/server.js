@@ -8,11 +8,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
+// var passport = require('passport');
+// var LocalStrategy = require('passport-local');
 
 
 //**********  Controllers  **********//
-
-
+var AssessmentCtrl = require('./api/controllers/AssessmentController');
+var ResultsCtrl = require('./api/controllers/ResultsController');
+var PromoCtrl = require('./api/controllers/PromoController');
 
 //**********  Models  **********//
 
@@ -27,8 +30,12 @@ app.use(express.static('./public'));
 app.use(cors());
 
 //**********  Endpoints  **********//
+//TODO (jcd 12/15) match endpoints with front end
+app.get('/api/getAssessment', AssessmentCtrl.getAssessment);
 
+app.get('/api/getResults', ResultsCtrl.getResults);
 
+app.post('/api/admin/promo', PromoCtrl.addPromoCode);
 
 //**********  Connections  **********//
 
