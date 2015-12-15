@@ -15,7 +15,7 @@ app.directive('showAssesment', function(mainService, assessments) {
             scope.start = function() {
                 scope.id = 0;
                 scope.x = 1;
-                quiz = assessments.getAssessment(active.key);
+                quiz = assessments.getAssessment(active.id);
                 scope.getQuestion(quiz);
                 scope.inProgress = true;
                 scope.start = false;
@@ -37,15 +37,16 @@ app.directive('showAssesment', function(mainService, assessments) {
             scope.next = function(val) {
                 scope.id++;
                 scope.x++;
-                scope.getQuestion();
+                scope.getQuestion(quiz);
                 myScore.push(val);
                 scope.scale = false;
             }
 
-            scope.showScore = function() {
+            scope.showScore = function () {
+                //TODO (jcd 12/15) Is this where the results get called?
                 scope.score = myScore;
             }
-
+            
 
 
             // WORKING
