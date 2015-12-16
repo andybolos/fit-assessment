@@ -5,7 +5,55 @@ TODO (jcd 12/16) change all functions to have req, res parameters, remove refere
 
 */
 
+var Score = require('../models/ScoresModel');
+var User = require('../models/UserModel');
+
 module.exports = {
+	addFreeAssessment: function(req, res) {
+		var email = req.body.email;
+		var newScore = new Score(req.body.score);
+		newScore.save(function(err, saved) {
+			if (err) {
+				return res.status(500).json(err);
+			}
+			var newUser = new User({
+				email: email
+			});
+			newUser.assessments.push(saved._id);
+			newUser.save(function(err, user) {
+				if (err) {
+					return res.status(500).json(err);
+				}
+				
+				//TODO (jcd 12/16) Send an email here
+				console.log('simulating email send for ' + saved._id);
+				return res.status(200).json({success: true});
+			})
+		})
+	},
+	addAssessment: function(req, res) {
+		var id = req.body.userId;
+		var newScore = new Score(req.body.score);
+		newScore.save(function(err, saved) {
+			if (err) {
+				return res.status(500).json(err);
+			}
+			User.findById(id).exec(function(err, user) {
+				if (err) {
+					return res.status(500).json(err);
+				}
+				user.assessments.push(saved._id);
+				user.save(function(err, savedUser) {
+					if (err) {
+						return res.status(500).json(err);
+					}
+					return res.status(200).json({success: true})
+				})
+			})
+		})
+	},
+	
+	//score counting methods
 	zone_check: function (input, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil) {
 		var score_obj = {};
 		if ((input >= low_floor) && (input <= low_ceil)) {
@@ -172,6 +220,7 @@ module.exports = {
 		return basi_score;
 	},
 	rcq_score: function (pre1, pre2, pre3, con1, con2, con3, prep1, prep2, prep3, act1, act2, act3, maint1, maint2, maint3) {
+		console.log(pre1);
 		var rcq_score;
 		var pre = [pre1, pre2, pre3];
 		var con = [con1, con2, con3];
@@ -186,7 +235,11 @@ module.exports = {
 		var stage5_score = 0;
 	
 		// sum up the score of all the precontemplation items in the stage1 variable
-		for (var i = 0; i < pre.length; i++) { stage1_score += pre[i]; }
+		for (var i = 0; i < pre.length; i++) { 
+			console.log(pre[i])
+			stage1_score += pre[i]; 
+			}
+		console.log('stage1_score', stage1_score)
 	
 		// sum up the score of all the contemplation items in the stage2 variable
 		for (var i = 0; i < con.length; i++) { stage2_score += con[i]; }
