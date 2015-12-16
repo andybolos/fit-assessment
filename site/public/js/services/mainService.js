@@ -1,4 +1,4 @@
-app.service('mainService', function($state) {
+app.service('mainService', function($state, $q, $http) {
 
     var bag = {};
     var myAssessments = {};
@@ -32,5 +32,14 @@ app.service('mainService', function($state) {
 
     this.freeSubmit = function(user) {
         console.log(user);
+        var dfd = $q.defer();
+        $http.post('/api/submitFreeAssessment', user)
+        .then(function(response) {
+            dfd.resolve();
+        })
+        .catch(function(err) {
+            dfd.reject(err);
+        })
+        return dfd.promise;
     }
 });

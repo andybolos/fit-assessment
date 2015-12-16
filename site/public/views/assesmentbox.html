@@ -8,6 +8,10 @@
         <input type="text" name="name" placeholder="Email..." ng-model="email">
         <button class="btn btn-primary" ng-click="freeSubmit(email)">Submit</button>
     </div>
+    <div ng-show="success">
+        <h2>Congrats! Your results have been emailed to you!</h2>
+        <a ui-sref="home" class="btn btn-primary">Return Home</a>
+    </div>
     <div ng-show="inProgress">
         <h2>Question {{ x }} of {{ y }} </h2>
         <h3>{{ question.item_text }}</h3>
@@ -40,6 +44,6 @@
         <h4>Thanks for completing the assessment. A link to your results has been emailed to you.</h4>
         <button class="btn btn-primary" type="button" name="button" ng-click="showScore()">Show Score</button>
         <h3>{{ score }}</h3>
-        <a ui-sref="home">Return Home</a>
+        <a class="btn btn-primary" ui-sref="home">Return Home</a>
     </div>
 </div>

@@ -54,7 +54,14 @@ app.directive('showAssesment', function(mainService, assessments) {
                 userObj.email = email;
                 userObj["assessment"].assessement_id = quiz.id;
                 userObj["assessment"].scores = myScore;
-                mainService.freeSubmit(userObj);
+                mainService.freeSubmit(userObj)
+                    .then(function() {
+                        scope.userInfo = false;
+                        scope.success = true;
+                    })
+                    .catch(function(err) {
+                        alert("Something went wrong, Please try again in a little while.")
+                    })
             }
 
 
