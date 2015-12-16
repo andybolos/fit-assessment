@@ -3,6 +3,11 @@
         <h2>You are about to start the {{ assessment }} assessment.</h2>
         <button type="button" name="button" class="btn btn-primary" ng-click="start()">Start Assessment</button>
     </div>
+    <div ng-show="userInfo">
+        <h2>Almost done. Please enter your email and your results will be sent to you.</h2>
+        <input type="text" name="name" placeholder="Email..." ng-model="email">
+        <button class="btn btn-primary" ng-click="freeSubmit(email)">Submit</button>
+    </div>
     <div ng-show="inProgress">
         <h2>Question {{ x }} of {{ y }} </h2>
         <h3>{{ question.item_text }}</h3>
@@ -35,6 +40,6 @@
         <h4>Thanks for completing the assessment. A link to your results has been emailed to you.</h4>
         <button class="btn btn-primary" type="button" name="button" ng-click="showScore()">Show Score</button>
         <h3>{{ score }}</h3>
-        <a href="#home">Return Home</a>
+        <a ui-sref="home">Return Home</a>
     </div>
 </div>

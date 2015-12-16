@@ -43,7 +43,6 @@ app.controller('menuCtrl', function($scope, mainService) {
         return sum;
     };
 
-    console.log(mainService);
     $scope.checkout = function(assessments) {
         console.log(assessments);
         mainService.checkout(assessments);
