@@ -1,4 +1,4 @@
-app.service('mainService', function() {
+app.service('adminService', function() {
 
     var clients = [{
         name: 'Dan Smith',

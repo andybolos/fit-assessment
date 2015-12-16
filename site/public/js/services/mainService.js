@@ -29,4 +29,8 @@ app.service('mainService', function($state) {
     this.activeAssessment = function() {
         return activeAssessment;
     }
+
+    this.freeSubmit = function(user) {
+        console.log(user);
+    }
 });

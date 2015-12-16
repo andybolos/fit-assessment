@@ -1,7 +1,7 @@
-app.controller('dashboardCtrl', function($scope, mainService) {
+app.controller('dashboardCtrl', function($scope, adminService) {
 
     $scope.test = "Test";
 
-    $scope.clients = mainService.clients();
+    $scope.clients = adminService.clients();
 
 })

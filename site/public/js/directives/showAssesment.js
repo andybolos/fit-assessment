@@ -29,8 +29,9 @@ app.directive('showAssesment', function(mainService, assessments) {
                     scope.question = q.q;
                     scope.y = q.l;
                 } else {
-                    scope.results = true;
+                    // scope.results = true;
                     scope.inProgress = false;
+                    scope.userInfo = true;
                 }
             }
 
@@ -46,7 +47,16 @@ app.directive('showAssesment', function(mainService, assessments) {
                 //TODO (jcd 12/15) Is this where the results get called?
                 scope.score = myScore;
             }
-            
+
+            scope.freeSubmit = function(email) {
+                var userObj = {};
+                userObj.assessment = {};
+                userObj.email = email;
+                userObj["assessment"].assessement_id = quiz.id;
+                userObj["assessment"].scores = myScore;
+                mainService.freeSubmit(userObj);
+            }
+
 
 
             // WORKING
