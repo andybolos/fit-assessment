@@ -1,8 +1,10 @@
-app.controller('listCtrl', function($scope, mainService, assessments, $state) {
-
-    var bag = mainService.getMyAssessments();
-
-    $scope.list = bag;
+app.controller('listCtrl', function($scope, mainService, assessments, $state, user, myAssessments) {
+    
+    $scope.user = user;
+    console.log($scope.user);
+    
+    $scope.list = myAssessments;
+    console.log($scope.list)
 
     $scope.getAssessment = function(obj) {
         mainService.setAssessment(obj);

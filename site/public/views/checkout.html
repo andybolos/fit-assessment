@@ -15,7 +15,7 @@
             <h2>Review Order</h2>
             <div>
                 <ul class="list-group">
-                    <li class="list-group-item"  ng-repeat="item in cart">{{ item.title }}
+                    <li class="list-group-item" ng-repeat="item in cart">{{ item.title }}
                         <span class="pull-right">
                             $ {{ item.price }}</span>
                     </li>
@@ -29,21 +29,26 @@
             <h2>Enter Payment Info</h2>
             <form>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Credit Number...">
-                    <input type="text" class="form-control" placeholder="Expiration Date...">
-                    <input type="text" class="form-control" placeholder="CSV...">
+                    <input type="email" class="form-control" placeholder="Email" ng-model="email">
+                    <div ng-if="validEmail">
+                        <input type="text" class="form-control" placeholder="Credit Number...">
+                        <input type="text" class="form-control" placeholder="Expiration Date...">
+                        <input type="text" class="form-control" placeholder="CSV...">
+                    </div>
                 </div>
-                <button type="button" name="button" class="btn btn-primary" ng-click="makePayment()">Check Out</button>
+                <button ng-if="!validEmail" ng-click="checkEmail()">Check Email</button>
+                    <p ng-if="emailMessage">{{emailMessage}}</p>
+                <button ng-if="validEmail" type="button" name="button" class="btn btn-primary" ng-click="makePayment()">Check Out</button>
             </form>
 
 
-            <h2>Use a Promo Code</h2>
+            <!--<h2>Use a Promo Code</h2>
             <form>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter a Promo Code...">
                 </div>
                 <button type="button" name="button" class="btn btn-primary" ng-click="makePayment()">Check Out</button>
-            </form>
+            </form>-->
         </div>
     </div>
 </div>

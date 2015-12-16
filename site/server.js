@@ -35,6 +35,8 @@ app.use(bodyParser.json());
 
 //**********  Endpoints  **********//
 
+app.post('/api/checkEmail', UserCtrl.checkEmail);
+
 app.post('/api/submitFreeAssessment', ScoreCtrl.addFreeAssessment);
 
 app.get('/api/getFreeResults/:id', ResultsCtrl.getFreeResults);
@@ -48,6 +50,9 @@ app.post('/api/submitAssessment', ScoreCtrl.addAssessment);
 app.get('/api/getAssessment/:id', AssessmentCtrl.getAssessment);
 
 app.get('/api/getAssessmentByStr/:id', AssessmentCtrl.getAssessmentByStrId);
+
+app.get('/api/myAssessments/:id', AssessmentCtrl.getMyAssessments);
+
 //TODO (jcd 12/15) match endpoints with front end
 
 app.get('/api/getResults', ResultsCtrl.getResults);
