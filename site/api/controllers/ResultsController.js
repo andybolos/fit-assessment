@@ -28,7 +28,24 @@
 	}
 
 */
+
+var Score = require('../models/ScoresModel');
+var ScoreCtrl = require('./ScoreController');
+
 module.exports = {
+	getFreeResults: function(req, res) {
+		var id = req.params.id;
+		Score.findById(id).exec(function(err, score) {
+			console.log(score);
+			var rcq_score = ScoreCtrl.rcq_score.apply(this, score.scores);
+			console.log(rcq_score);
+			if (!rcq_score) {
+				return res.status(500).send('Error processing results');
+			} else {
+				return res.status(200).json(rcq_score);
+			}
+		})
+	},
 	getResults: function (req, res) {
 		var scores_obj = req.body.scores; // TODO (jcd 12/15) Not sure if this is passed from the client or saved on session or something else
 		var results_obj = {

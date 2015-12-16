@@ -3,11 +3,10 @@ var Schema = Mongoose.Schema;
 
 var Assessment = new Schema({
 	quiz_id: String,
-	item_text: String,
-	assessment_type: {
-		type: String,
-		enum: ['Individual', 'Promo']
-	}
+	questions: [{
+		item_id: String,
+		item_text: String
+	}]
 });
 
 module.exports = Mongoose.model('Assessment', Assessment);

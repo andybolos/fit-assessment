@@ -16,6 +16,9 @@ var mongoose = require('mongoose');
 var AssessmentCtrl = require('./api/controllers/AssessmentController');
 var ResultsCtrl = require('./api/controllers/ResultsController');
 var PromoCtrl = require('./api/controllers/PromoController');
+var ScoreCtrl = require('./api/controllers/ScoreController');
+var PaymentCtrl = require('./api/controllers/PaymentController');
+var UserCtrl = require('./api/controllers/UserController');
 
 //**********  Models  **********//
 
@@ -28,13 +31,24 @@ var app = express();
 
 app.use(express.static('./public'));
 app.use(cors());
+app.use(bodyParser.json());
 
 //**********  Endpoints  **********//
 
-// app.post('/api/submitFreeAssessment', AssessmentCtrl.addFreeAssessment);
+app.post('/api/submitFreeAssessment', ScoreCtrl.addFreeAssessment);
 
+app.get('/api/getFreeResults/:id', ResultsCtrl.getFreeResults);
+
+app.post('/api/submitPayment', PaymentCtrl.submitPayment);
+
+app.get('/api/getUser/:id', UserCtrl.getUser);
+
+app.post('/api/submitAssessment', ScoreCtrl.addAssessment);
+
+app.get('/api/getAssessment/:id', AssessmentCtrl.getAssessment);
+
+app.get('/api/getAssessmentByStr/:id', AssessmentCtrl.getAssessmentByStrId);
 //TODO (jcd 12/15) match endpoints with front end
-app.get('/api/getAssessment', AssessmentCtrl.getAssessment);
 
 app.get('/api/getResults', ResultsCtrl.getResults);
 
