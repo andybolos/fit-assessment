@@ -1,5 +1,31 @@
-.mycontainer {
-  padding: 25px; }
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300; }
+
+hr {
+  border: 1px solid #ebebeb;
+  margin-top: 40px;
+  margin-bottom: 40px; }
+
+.blue, #bubbles .benefits, #assessments .course, #assessments .chunk h1 {
+  color: #3399cc;
+  text-transform: uppercase; }
+
+.btn-xlg {
+  padding: 18px 28px;
+  font-size: 30px;
+  line-height: normal;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px; }
 
 .quizlet {
   border: #000 1px solid;
@@ -11,12 +37,224 @@
   font-size: 18px; }
 
 .logo {
-  height: 100px; }
-
-a {
-  color: #3399cc; }
+  height: 75px;
+  padding: 7px 0; }
 
 .btn-primary {
-  background-color: #3399cc; }
+  background-color: #3399cc;
+  border: none; }
+
+#navi {
+  display: inline-flex;
+  padding: 10px 30px 7px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center; }
+  #navi .navi_logo a img {
+    height: 80px;
+    padding: 10px; }
+  #navi .navibar {
+    display: inline; }
+    #navi .navibar ul {
+      display: inline-flex; }
+      #navi .navibar ul li a {
+        padding: 15px;
+        font-size: 1.4em;
+        color: #000; }
+      #navi .navibar ul li a:hover {
+        text-decoration: none;
+        border-bottom: 2px #3399cc solid; }
+
+#hero {
+  background: linear-gradient(rgba(20, 20, 20, 0.25), rgba(20, 20, 20, 0.25)), url(rocks.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  overflow: auto; }
+  #hero .text-box {
+    height: 60%;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    padding-top: 50px; }
+    #hero .text-box .hero_logo img {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      height: 120px;
+      padding: 12px 12px 8px;
+      border-radius: 10px;
+      border: 3px #3399cc solid; }
+    #hero .text-box h1 {
+      margin: 120px 0 20px;
+      color: #ffffff;
+      padding: 0;
+      font-size: 5em;
+      font-weight: 600; }
+    #hero .text-box h2 {
+      color: #ffffff;
+      padding: 0;
+      margin: 7px 0;
+      font-size: 2.5em; }
+  #hero .square_row {
+    position: absolute;
+    bottom: 0; }
+    #hero .square_row .square {
+      text-align: center;
+      padding: 10px;
+      color: #fff; }
+      #hero .square_row .square h3 {
+        margin: 0;
+        padding: 8px 0;
+        font-size: 1.7em;
+        font-weight: 500; }
+      #hero .square_row .square p {
+        margin: 0;
+        font-size: 1.2em; }
+    #hero .square_row .purple_square {
+      background: #7C375E url(arrow1.png) 0 100% no-repeat;
+      background-size: contain; }
+    #hero .square_row .green_square {
+      background: #54802C url(arrow2.png) 0 100% no-repeat;
+      background-size: contain; }
+    #hero .square_row .blue_square {
+      background: #31515B url(arrow3.png) 0 100% no-repeat;
+      background-size: contain; }
+    #hero .square_row .start_square {
+      background-color: #3399cc; }
+
+#greybox {
+  height: 800px;
+  background: #F7F7F7;
+  position: relative; }
+  #greybox .content .title {
+    padding-top: 30px;
+    position: relative; }
+    #greybox .content .title .program {
+      font-size: 4em;
+      text-align: center; }
+    #greybox .content .title h2 {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 2.5em; }
+  #greybox .content .list_pic {
+    position: relative; }
+    #greybox .content .list_pic img {
+      display: block;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 50px;
+      margin-top: 50px; }
+  #greybox .content .bullets {
+    margin-top: 5%; }
+    #greybox .content .bullets ul li::before {
+      font-family: "Glyphicons Halflings";
+      content: '\e013';
+      color: #3399cc;
+      margin-left: -28px;
+      padding-right: 10px;
+      font-size: 0.8em; }
+    #greybox .content .bullets ul li {
+      font-size: 1.6em;
+      margin: 15px 0; }
+
+#bubbles {
+  padding-top: 30px;
+  margin: 0 50px; }
+  #bubbles .benefits {
+    font-size: 4em;
+    text-align: center; }
+  #bubbles .left_text,
+  #bubbles .right_text {
+    padding: 0 25px; }
+    #bubbles .left_text blockquote,
+    #bubbles .right_text blockquote {
+      margin: 0; }
+    #bubbles .left_text h1,
+    #bubbles .right_text h1 {
+      margin-top: 5%;
+      margin-bottom: 0;
+      padding: 20px; }
+    #bubbles .left_text p,
+    #bubbles .right_text p {
+      font-size: 1.4em;
+      padding: 20px; }
+  #bubbles .right_pic img,
+  #bubbles .left_pic img {
+    margin: 50px 0;
+    display: block;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%; }
+
+#hero_two {
+  margin-top: 50px;
+  height: 800px;
+  background: linear-gradient(rgba(20, 20, 20, 0.35), rgba(20, 20, 20, 0.35)), url(bluff.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative; }
+  #hero_two .hero_pic {
+    text-align: center; }
+    #hero_two .hero_pic h1,
+    #hero_two .hero_pic h2,
+    #hero_two .hero_pic h3 {
+      color: #fff;
+      margin: 0; }
+    #hero_two .hero_pic h1 {
+      font-size: 2.7em;
+      padding-top: 10%; }
+    #hero_two .hero_pic h2 {
+      padding-top: 10px;
+      font-size: 6em;
+      text-transform: uppercase;
+      font-weight: 600; }
+    #hero_two .hero_pic h3 {
+      padding-top: 10px;
+      font-size: 3em; }
+
+#assessments {
+  padding-top: 30px; }
+  #assessments .course {
+    text-align: center;
+    font-size: 4em; }
+  #assessments .chunk {
+    padding: 0 25px; }
+    #assessments .chunk blockquote {
+      margin: 0; }
+    #assessments .chunk h1 {
+      margin-bottom: 0;
+      padding: 0 20px; }
+    #assessments .chunk p {
+      font-size: 1.4em;
+      padding: 20px; }
+    #assessments .chunk .start {
+      text-align: center;
+      margin-top: 30%; }
+
+#footer {
+  background-color: #ddd;
+  display: inline-flex;
+  padding: 10px 30px 7px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center; }
+  #footer .navi_logo_foot a img {
+    height: 80px;
+    padding: 10px; }
+  #footer .navibar_foot {
+    display: inline; }
+    #footer .navibar_foot ul {
+      display: inline-flex; }
+      #footer .navibar_foot ul li a {
+        padding: 15px;
+        font-size: 1.2em;
+        color: #000; }
+      #footer .navibar_foot ul li a:hover {
+        text-decoration: none;
+        border-bottom: 2px #3399cc solid; }
 
 /*# sourceMappingURL=style.css.map */
