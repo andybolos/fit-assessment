@@ -61,6 +61,20 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/thanks',
             templateUrl: '../views/paymentSuccess.html'
         })
+        .state('paymentError', {
+            url: '/sorry',
+            templateUrl: '../views/paymentError.html'
+        })
+        .state('fullResults', {
+            url: '/results/:assessment_id',
+            templateUrl: '../views/fullResults.html',
+            controller: 'resultsCtrl',
+            resolve: {
+                getResults: function (mainService, $stateParams) {
+                    return mainService.getFullResults($stateParams.assessment_id);
+                }
+            }
+        })
 
 });
 
@@ -71,6 +85,7 @@ app.run(function ($rootScope, $state, $window) {
     
     $rootScope.$on('$stateChangeStart', function (event, toState) {
         if (toState.name === 'home' && $window.sessionStorage.user) {
+            console.log('bye user')
             delete $window.sessionStorage.user;
         }
     })

@@ -54,7 +54,21 @@ app.service('mainService', function($state, $q, $http, $window) {
     }
 
     this.setAssessment = function(obj) {
+        var dfd = $q.defer();
+        if (obj) {
         activeAssessment = obj;
+        dfd.resolve();
+        } else {
+            $http.get('/api/getAssessmentByStr/rcq')
+                .then(function(response) {
+                    activeAssessment = response.data;
+                    dfd.resolve();
+                })
+                .catch(function(err) {
+                    dfd.reject(err);
+                })
+        }
+        return dfd.promise;
     }
 
     this.activeAssessment = function() {
@@ -65,6 +79,19 @@ app.service('mainService', function($state, $q, $http, $window) {
         console.log(user);
         var dfd = $q.defer();
         $http.post('/api/submitFreeAssessment', user)
+        .then(function(response) {
+            dfd.resolve();
+        })
+        .catch(function(err) {
+            dfd.reject(err);
+        })
+        return dfd.promise;
+    }
+    
+    this.paidSubmit = function(user) {
+        console.log(user);
+        var dfd = $q.defer();
+        $http.post('/api/submitAssessment', user)
         .then(function(response) {
             dfd.resolve();
         })
@@ -117,6 +144,40 @@ app.service('mainService', function($state, $q, $http, $window) {
                 dfd.reject(err);
             })
         
+        return dfd.promise;
+    }
+    
+    this.checkCompleted = function (list, user) {
+        var dfd = $q.defer();
+        var toCheck = [];
+        toCheck = list.map(function (item) {
+            return item._id;
+        })
+        var completed = [];
+        completed = user.assessments.map(function (item) {
+            return item.assessment_id
+        })
+        for (var i = 0; i < toCheck.length; i++) {
+            var isCompletedIndex = completed.indexOf(toCheck[i]);
+            if (isCompletedIndex !== -1) {
+                list[i].completed = user.assessments[isCompletedIndex]._id;
+            }
+        }
+        dfd.resolve(list);
+        return dfd.promise;
+    }
+    
+    this.getFullResults = function (assessment_id) {
+        //TODO (jcd 12/17) this will get everything needed to show full results/modules/etc.
+        return assessment_id;
+    }
+    
+    this.handleStripeRCQPayment = function(tokenObj) {
+        var dfd = $q.defer();
+        console.log(tokenObj)
+        
+        //TODO (jcd 12/17) hit endpoint for payment, check for user (make sure 'rcq' isn't in their paid array), make stripe charge, then add 'rcq' to the user's paid array and finally email them a link to their user page.
+        dfd.resolve();
         return dfd.promise;
     }
     

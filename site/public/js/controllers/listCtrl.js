@@ -3,8 +3,16 @@ app.controller('listCtrl', function($scope, mainService, assessments, $state, us
     $scope.user = user;
     console.log($scope.user);
     
-    $scope.list = myAssessments;
-    console.log($scope.list)
+    
+    // $scope.list = myAssessments;
+    // console.log($scope.list)
+    
+    mainService.checkCompleted(myAssessments, user)
+        .then(function (response) {
+            $scope.list = response;
+            console.log($scope.list);
+        })
+    
 
     $scope.getAssessment = function(obj) {
         mainService.setAssessment(obj);

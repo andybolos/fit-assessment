@@ -49,4 +49,12 @@
         <h3>{{ score }}</h3>
         <a class="btn btn-primary" ui-sref="home">Return Home</a>
     </div>
+    <div ng-if="paidSubmitPending">
+        <h2>Complete!</h2>
+        <button class="btn btn-primary" ng-click="paidSubmit()">Submit</a>
+    </div>
+    <div ng-show="paidResults">
+        <h4>Thanks for completing the assessment. A link to your results has been emailed to you.</h4>
+        <a class="btn btn-primary" ui-sref="list({userId: userId})">Return to Assessments & Results Menu</a>
+    </div>
 </div>

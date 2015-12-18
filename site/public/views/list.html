@@ -13,7 +13,13 @@
         <div>
             <ul>
                 <div ng-repeat="assessment in list">
-                    <a href="" ng-click="getAssessment(assessment)">{{ assessment.title }}</a>
+                    <div ng-if="!assessment.completed">
+                        <a ng-click="getAssessment(assessment)">{{ assessment.title }}</a>
+                    </div>
+                    <div ng-if="assessment.completed">
+                        {{assessment.title}} 
+                        <a ui-sref="fullResults({assessment_id: assessment.completed})">(view results)</a>
+                    </div>
                 </div>
             </ul>
         </div>

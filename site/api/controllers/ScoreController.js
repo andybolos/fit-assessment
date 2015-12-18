@@ -7,6 +7,7 @@ TODO (jcd 12/16) change all functions to have req, res parameters, remove refere
 
 var Score = require('../models/ScoresModel');
 var User = require('../models/UserModel');
+var EmailCtrl = require('./EmailController');
 
 module.exports = {
 	addFreeAssessment: function(req, res) {
@@ -25,15 +26,28 @@ module.exports = {
 					return res.status(500).json(err);
 				}
 
-				//TODO (jcd 12/16) Send an email here
-				console.log('simulating email send for ' + saved._id);
-				return res.status(200).json({success: true});
+				// EmailCtrl.sendFreeResults(email, saved._id)
+				// 	.then(function() {
+				// 		return res.status(200).json({success: true})
+				// 	})
+				// 	.catch(function(err) {
+				// 		return res.status(500).json({success: false, error: err})
+				// 	})
+				
+				//TODO (jcd 12/17) Swap for above when email is functional
+				EmailCtrl.simulateFree(email, saved._id)
+					.then(function() {
+						return res.status(200).json({success: true})
+					})
+					.catch(function(err) {
+						return res.status(500).json({success: false, error: err})
+					})
 			})
 		})
 	},
 	addAssessment: function(req, res) {
 		var id = req.body.userId;
-		var newScore = new Score(req.body.score);
+		var newScore = new Score(req.body.assessment);
 		newScore.save(function(err, saved) {
 			if (err) {
 				return res.status(500).json(err);
@@ -47,7 +61,23 @@ module.exports = {
 					if (err) {
 						return res.status(500).json(err);
 					}
-					return res.status(200).json({success: true})
+					
+				// EmailCtrl.sendUserEmail(id)
+				// 	.then(function() {
+				// 		return res.status(200).json({success: true})
+				// 	})
+				// 	.catch(function(err) {
+				// 		return res.status(500).json({success: false, error: err})
+				// 	})
+					
+					//TODO (jcd 12/17) Swap for above when email is functional
+					EmailCtrl.simulateUserEmail(email, saved._id)
+					.then(function() {
+						return res.status(200).json({success: true})
+					})
+					.catch(function(err) {
+						return res.status(500).json({success: false, error: err})
+					})
 				})
 			})
 		})

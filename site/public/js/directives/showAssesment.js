@@ -12,8 +12,10 @@ app.directive('showAssesment', function (mainService, assessments, $window) {
             console.log(hasUser);
             var quiz = {};
             scope.validEmail = false;
+            scope.paidSubmitPending = false;
             scope.y = active.questions.length;
             scope.assessment = active.title;
+            console.log(active)
 
             scope.start = function () {
                 scope.id = 0;
@@ -47,17 +49,18 @@ app.directive('showAssesment', function (mainService, assessments, $window) {
                     scope.question = active.questions[scope.id];
                 } else {
                     scope.inProgress = false;
-                    scope.userInfo = true;
+                    if (!$window.sessionStorage.user) {
+                        scope.userInfo = true;
+                    } else {
+                        var user = JSON.parse($window.sessionStorage.user);
+                        scope.userId = user._id;
+                        scope.paidSubmitPending = true;
+                    }
                 }
                 // scope.getQuestion(quiz);
                 myScore.push(val);
                 console.log(myScore);
                 scope.scale = false;
-            }
-
-            scope.showScore = function () {
-                //TODO (jcd 12/15) Is this where the results get called?
-                scope.score = myScore;
             }
 
             scope.checkEmail = function () {
@@ -76,51 +79,38 @@ app.directive('showAssesment', function (mainService, assessments, $window) {
                 var userObj = {};
                 userObj.assessment = {};
                 userObj.email = email;
-                userObj["assessment"].assessement_id = quiz.id;
-                userObj["assessment"].scores = myScore;
+                userObj.assessment.assessment_name = active.quiz_id;
+                userObj.assessment.assessment_id = active._id;
+                userObj.assessment.scores = myScore;
                 mainService.freeSubmit(userObj)
                     .then(function () {
                         scope.userInfo = false;
                         scope.success = true;
                     })
                     .catch(function (err) {
-                        alert("Something went wrong, Please try again in a little while.")
+                        alert("Something went wrong, please try again in a little while.")
                     })
             }
 
+            scope.paidSubmit = function () {
+                var userObj = {};
+                userObj.assessment = {};
+                userObj.userId = scope.userId
+                userObj.assessment.assessment_name = active.quiz_id;
+                userObj.assessment.assessment_id = active._id;
+                userObj.assessment.scores = myScore;
+                console.log(userObj);
+                mainService.paidSubmit(userObj)
+                    .then(function () {
+                        scope.paidSubmitPending = false;
+                        scope.paidResults = true;
+                    })
+                    .catch(function (err) {
+                        scope.errorMessage = 'There was a problem processing your request.';
+                        console.log(scope.errorMessage);
+                    })
+            }
 
-
-            // WORKING
-            // scope.start = function() {
-            //     scope.id = 0;
-            //     scope.x = 1;
-            //     scope.getQuestion();
-            //     scope.inProgress = true;
-            //     scope.start = false;
-            // };
-            //
-            // scope.getQuestion = function() {
-            //     var q = testQuiz.questions(assesment, scope.id);
-            //     if (q) {
-            //         scope.question = q.q;
-            //         scope.y = q.l;
-            //     }
-            //     else {
-            //         scope.results = true;
-            //         scope.inProgress = false;
-            //     }
-            // }
-            //
-            // scope.next = function(val) {
-            //     scope.id++;
-            //     scope.x++;
-            //     scope.getQuestion();
-            //     myScore.push(val);
-            //     scope.scale = false;
-            // }
-            // scope.showScore = function() {
-            //     scope.score = myScore;
-            // }
         }
     }
 
