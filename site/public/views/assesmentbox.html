@@ -5,8 +5,11 @@
     </div>
     <div ng-show="userInfo">
         <h2>Almost done. Please enter your email and your results will be sent to you.</h2>
-        <input type="text" name="name" placeholder="Email..." ng-model="email">
-        <button class="btn btn-primary" ng-click="freeSubmit(email)">Submit</button>
+        <input type="email" name="name" placeholder="Email..." ng-model="email">
+        <button ng-if="!validEmail" class="btn btn-primary" ng-click="checkEmail()">Check Email</button>
+        <button ng-if="validEmail" class="btn btn-primary" ng-click="freeSubmit(email)">Submit</button>
+        <br />
+        <p ng-if="emailMessage">{{emailMessage}}</p>
     </div>
     <div ng-show="success">
         <h2>Congrats! Your results have been emailed to you!</h2>
@@ -45,5 +48,13 @@
         <button class="btn btn-primary" type="button" name="button" ng-click="showScore()">Show Score</button>
         <h3>{{ score }}</h3>
         <a class="btn btn-primary" ui-sref="home">Return Home</a>
+    </div>
+    <div ng-if="paidSubmitPending">
+        <h2>Complete!</h2>
+        <button class="btn btn-primary" ng-click="paidSubmit()">Submit</a>
+    </div>
+    <div ng-show="paidResults">
+        <h4>Thanks for completing the assessment. A link to your results has been emailed to you.</h4>
+        <a class="btn btn-primary" ui-sref="list({userId: userId})">Return to Assessments & Results Menu</a>
     </div>
 </div>

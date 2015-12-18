@@ -18,7 +18,11 @@ var Score = new Schema({
 		default: null
 	},
 	//string value 'rcq', 'posi', etc
-	assessment_id: String,
+	assessment_name: String,
+	assessment_id: {
+		type: Schema.Types.ObjectId,
+		ref: 'Assessment'
+		},
 	scores: [Number]
 });
 

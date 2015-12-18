@@ -35,11 +35,17 @@ app.use(bodyParser.json());
 
 //**********  Endpoints  **********//
 
+app.post('/api/checkEmail', UserCtrl.checkEmail);
+
 app.post('/api/submitFreeAssessment', ScoreCtrl.addFreeAssessment);
 
 app.get('/api/getFreeResults/:id', ResultsCtrl.getFreeResults);
 
+app.get('/api/getFreeEmail/:id', UserCtrl.getEmailFromScore);
+
 app.post('/api/submitPayment', PaymentCtrl.submitPayment);
+
+app.post('/api/makeRCQPayment', PaymentCtrl.makeRCQPayment);
 
 app.get('/api/getUser/:id', UserCtrl.getUser);
 
@@ -48,11 +54,12 @@ app.post('/api/submitAssessment', ScoreCtrl.addAssessment);
 app.get('/api/getAssessment/:id', AssessmentCtrl.getAssessment);
 
 app.get('/api/getAssessmentByStr/:id', AssessmentCtrl.getAssessmentByStrId);
-//TODO (jcd 12/15) match endpoints with front end
 
-app.get('/api/getResults', ResultsCtrl.getResults);
+app.get('/api/myAssessments/:id', AssessmentCtrl.getMyAssessments);
 
-app.post('/api/admin/promo', PromoCtrl.addPromoCode);
+app.get('/api/getFullResults/:id', ResultsCtrl.getFullResults);
+
+// app.post('/api/admin/promo', PromoCtrl.addPromoCode);
 
 //**********  Connections  **********//
 

@@ -4,9 +4,10 @@ TODO (jcd 12/15) return some response. At what point in the program flow are the
 TODO (jcd 12/16) change all functions to have req, res parameters, remove references to arguments
 
 */
-
+var Q = require('q');
 var Score = require('../models/ScoresModel');
 var User = require('../models/UserModel');
+var EmailCtrl = require('./EmailController');
 
 module.exports = {
 	addFreeAssessment: function(req, res) {
@@ -25,15 +26,29 @@ module.exports = {
 					return res.status(500).json(err);
 				}
 
-				//TODO (jcd 12/16) Send an email here
-				console.log('simulating email send for ' + saved._id);
-				return res.status(200).json({success: true});
+				// EmailCtrl.sendFreeResults(email, saved._id)
+				// 	.then(function() {
+				// 		return res.status(200).json({success: true})
+				// 	})
+				// 	.catch(function(err) {
+				// 		return res.status(500).json({success: false, error: err})
+				// 	})
+				
+				//TODO (jcd 12/17) Swap for above when email is functional
+				EmailCtrl.simulateFree(email, saved._id)
+					.then(function() {
+						return res.status(200).json({success: true})
+					})
+					.catch(function(err) {
+						return res.status(500).json({success: false, error: err})
+					})
 			})
 		})
 	},
 	addAssessment: function(req, res) {
 		var id = req.body.userId;
-		var newScore = new Score(req.body.score);
+		var email = req.body.email;
+		var newScore = new Score(req.body.assessment);
 		newScore.save(function(err, saved) {
 			if (err) {
 				return res.status(500).json(err);
@@ -47,10 +62,57 @@ module.exports = {
 					if (err) {
 						return res.status(500).json(err);
 					}
-					return res.status(200).json({success: true})
+					
+				// EmailCtrl.sendUserEmail(id)
+				// 	.then(function() {
+				// 		return res.status(200).json({success: true})
+				// 	})
+				// 	.catch(function(err) {
+				// 		return res.status(500).json({success: false, error: err})
+				// 	})
+					
+					//TODO (jcd 12/17) Swap for above when email is functional
+					EmailCtrl.simulateUserEmail(email, saved._id)
+					.then(function() {
+						return res.status(200).json({success: true})
+					})
+					.catch(function(err) {
+						return res.status(500).json({success: false, error: err})
+					})
 				})
 			})
 		})
+	},
+	getScore: function(name, scores) {
+		var self = this;
+		var dfd = Q.defer();
+		var resultsObj = {};
+		switch(name) {
+			case 'ebi':
+				resultsObj = this.ebi_score(scores);
+				dfd.resolve(resultsObj);
+				break;
+			case 'bia':
+				resultsObj = this.bia_score(scores);
+				dfd.resolve(resultsObj);
+				break;
+			case 'posi':
+				resultsObj = this.posi_score(scores);
+				dfd.resolve(resultsObj);
+				break;
+			case 'bdsi':
+				resultsObj = this.bdsi_score(scores);
+				dfd.resolve(resultsObj);
+				break;
+			case 'basi':
+				resultsObj = this.basi_score(scores);
+				dfd.resolve(resultsObj);
+				break;
+			default:
+				
+		}
+		
+		return dfd.promise;
 	},
 
 	//score counting methods
@@ -80,15 +142,16 @@ module.exports = {
 
 		return score_obj;
 	},
-	ebi_score: function (req, res) {
-		var args = req.body.results;
+	ebi_score: function (scores) {
 		// There are 36 arguments expected
+		console.log('ebi scores', scores)
 		var ebi_score, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil;
 		var score = 0;
 		// sum all inputs
-		for (var i = 0; i < args.length; i++) {
-			score += args[i];
+		for (var i = 0; i < scores.length; i++) {
+			score += scores[i];
 		}
+		console.log('ebi total', score)
 
 		// set our 'cutoff scores'
 		// low concern
@@ -107,13 +170,12 @@ module.exports = {
 		ebi_score = this.zone_check(score, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil);
 		return ebi_score;
 	},
-	bia_score: function () {
+	bia_score: function (scores) {
 		// 30 arguments expected
 		var bia_score, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil;
 		var score = 0;
-		for (var i = 0; i < arguments.length; i++) {
-			// "Variable variables"  -  see: http://www.php.net/manual/en/language.variables.variable.php
-			score += arguments[i];
+		for (var i = 0; i < scores.length; i++) {
+			score += scores[i];
 		}
 
 
@@ -136,13 +198,13 @@ module.exports = {
 
 		return bia_score;
 	},
-	posi_score: function () {
+	posi_score: function (scores) {
 		// 30 arguments expected
 		var posi_score, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil;
 		// initialize score at zero
 		var score = 0;
-		for (var i = 0; i < arguments.length; i++) {
-			score += arguments[i];
+		for (var i = 0; i < scores.length; i++) {
+			score += scores[i];
 		} // end for loop
 
 
@@ -163,14 +225,13 @@ module.exports = {
 		posi_score = this.zone_check(score, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil);
 		return posi_score;
 	},
-	bdsi_score: function () {
+	bdsi_score: function (scores) {
 		// 9 arguments
 		var bdsi_score, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil;
 		// initialize score at zero
 		var score = 0;
-		for (var i = 0; i < arguments.length; i++) {
-			// "Variable variables"  -  see: http://www.php.net/manual/en/language.variables.variable.php
-			score += arguments[i];
+		for (var i = 0; i < scores.length; i++) {
+			score += scores[i];
 		} // end for loop
 
 
@@ -191,14 +252,13 @@ module.exports = {
 		bdsi_score = this.zone_check(score, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil);
 		return bdsi_score;
 	},
-	basi_score: function () {
+	basi_score: function (scores) {
 		//9 arguments
 		var basi_score, low_floor, low_ceil, med_floor, med_ceil, high_floor, high_ceil;
 		// initialize score at zero
 		var score = 0;
-		for (var i = 0; i < arguments.length; i++) {
-			// "Variable variables"  -  see: http://www.php.net/manual/en/language.variables.variable.php
-			score += arguments[i];
+		for (var i = 0; i < scores.length; i++) {
+			score += scores[i];
 		} // end for loop
 
 

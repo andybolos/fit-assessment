@@ -25,9 +25,17 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             controller: 'questionCtrl'
         })
         .state('list', {
-            url: '/list',
+            url: '/list/:userId',
             templateUrl: '../views/list.html',
-            controller: 'listCtrl'
+            controller: 'listCtrl',
+            resolve: {
+                user: function (mainService, $stateParams) {
+                    return mainService.getUser($stateParams.userId);
+                },
+                myAssessments: function (mainService, $stateParams) {
+                    return mainService.getMyAssessments($stateParams.userId);
+                }
+            }
         })
         .state('login', {
             url: '/login',
@@ -39,5 +47,49 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: '../views/dashboard.html',
             controller: 'dashboardCtrl'
         })
+        .state('resultsPreview', {
+            url: '/results/preview/:id',
+            templateUrl: '../views/freeResults.html',
+            controller: 'previewCtrl',
+            resolve: {
+                freeResults: function (mainService, $stateParams) {
+                    return mainService.getFreeResults($stateParams.id);
+                },
+                getEmail: function(mainService, $stateParams) {
+                    return mainService.getFreeEmail($stateParams.id)
+                }
+            }
+        })
+        .state('paymentSuccess', {
+            url: '/thanks',
+            templateUrl: '../views/paymentSuccess.html'
+        })
+        .state('paymentError', {
+            url: '/sorry',
+            templateUrl: '../views/paymentError.html'
+        })
+        .state('fullResults', {
+            url: '/results/:assessment_id',
+            templateUrl: '../views/fullResults.html',
+            controller: 'resultsCtrl',
+            resolve: {
+                getFullResults: function (mainService, $stateParams) {
+                    return mainService.getFullResults($stateParams.assessment_id);
+                }
+            }
+        })
 
 });
+
+app.run(function ($rootScope, $state, $window) {
+    $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+        console.log(error);
+    })
+    
+    $rootScope.$on('$stateChangeStart', function (event, toState) {
+        if (toState.name === 'home' && $window.sessionStorage.user) {
+            console.log('bye user')
+            delete $window.sessionStorage.user;
+        }
+    })
+})
