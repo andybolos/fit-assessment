@@ -53,6 +53,7 @@ app.directive('showAssesment', function (mainService, assessments, $window) {
                         scope.userInfo = true;
                     } else {
                         var user = JSON.parse($window.sessionStorage.user);
+                        scope.user = user;
                         scope.userId = user._id;
                         scope.paidSubmitPending = true;
                     }
@@ -95,7 +96,8 @@ app.directive('showAssesment', function (mainService, assessments, $window) {
             scope.paidSubmit = function () {
                 var userObj = {};
                 userObj.assessment = {};
-                userObj.userId = scope.userId
+                userObj.userId = scope.userId;
+                userObj.email = scope.user.email;
                 userObj.assessment.assessment_name = active.quiz_id;
                 userObj.assessment.assessment_id = active._id;
                 userObj.assessment.scores = myScore;

@@ -47,6 +47,7 @@ module.exports = {
 	},
 	addAssessment: function(req, res) {
 		var id = req.body.userId;
+		var email = req.body.email;
 		var newScore = new Score(req.body.assessment);
 		newScore.save(function(err, saved) {
 			if (err) {

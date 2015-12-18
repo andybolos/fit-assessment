@@ -1,4 +1,4 @@
-app.controller('previewCtrl', function($rootScope, $scope, mainService, freeResults) {
+app.controller('previewCtrl', function($rootScope, $scope, mainService, freeResults, $state) {
 
 	$scope.results = freeResults;
 	
