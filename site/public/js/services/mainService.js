@@ -14,7 +14,6 @@ app.service('mainService', function($state, $q, $http, $window) {
     }
 
     this.makePayment = function (user) {
-        //TODO (jcd 12/16) view should check email before submitting
         var dfd = $q.defer();
         
         $http.post('/api/submitPayment', {
@@ -24,7 +23,6 @@ app.service('mainService', function($state, $q, $http, $window) {
         })
             .then(function (response) {
                 if (response.data.success) {
-                    //TODO (jcd 12/16) create paymentSuccess state ('please check email', return to home button)
                     $state.go('paymentSuccess');
                 } else {
                     dfd.reject();
@@ -115,6 +113,20 @@ app.service('mainService', function($state, $q, $http, $window) {
         return dfd.promise;
     }
     
+    this.getFreeEmail = function(id) {
+        var dfd = $q.defer();
+        
+        $http.get('/api/getFreeEmail/' + id)
+            .then(function(response) {
+                dfd.resolve(response.data.email);
+            })
+            .catch(function(err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
+    }
+    
     this.checkEmail = function (email) {
         var dfd = $q.defer();
         
@@ -167,17 +179,55 @@ app.service('mainService', function($state, $q, $http, $window) {
         return dfd.promise;
     }
     
-    this.getFullResults = function (assessment_id) {
+    this.getFullResults = function (assessmentId) {
         //TODO (jcd 12/17) this will get everything needed to show full results/modules/etc.
-        return assessment_id;
+        var dfd = $q.defer();
+        
+        $http.get('/api/getFullResults/' + assessmentId)
+            .then(function(response) {
+                dfd.resolve(response.data);
+            })
+            .catch(function(err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
     }
     
-    this.handleStripeRCQPayment = function(tokenObj) {
+    this.handleStripeRCQPayment = function(tokenObj, amount) {
         var dfd = $q.defer();
         console.log(tokenObj)
         
-        //TODO (jcd 12/17) hit endpoint for payment, check for user (make sure 'rcq' isn't in their paid array), make stripe charge, then add 'rcq' to the user's paid array and finally email them a link to their user page.
-        dfd.resolve();
+        $http.post('/api/makeRCQPayment', {
+            tokenObj: tokenObj,
+            amount: amount
+            })
+            .then(function() {
+                dfd.resolve();
+            })
+            .catch(function() {
+                dfd.reject();
+            })
+        
+        return dfd.promise;
+    }
+    
+    this.handleStripePayment = function(tokenObj, amount, purchased) {
+        var dfd = $q.defer();
+        console.log(tokenObj)
+        
+        $http.post('/api/submitPayment', {
+            tokenObj: tokenObj,
+            amount: amount,
+            purchased: purchased
+            })
+            .then(function() {
+                dfd.resolve();
+            })
+            .catch(function() {
+                dfd.reject();
+            })
+        
         return dfd.promise;
     }
     

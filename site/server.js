@@ -41,7 +41,11 @@ app.post('/api/submitFreeAssessment', ScoreCtrl.addFreeAssessment);
 
 app.get('/api/getFreeResults/:id', ResultsCtrl.getFreeResults);
 
+app.get('/api/getFreeEmail/:id', UserCtrl.getEmailFromScore);
+
 app.post('/api/submitPayment', PaymentCtrl.submitPayment);
+
+app.post('/api/makeRCQPayment', PaymentCtrl.makeRCQPayment);
 
 app.get('/api/getUser/:id', UserCtrl.getUser);
 
@@ -53,11 +57,9 @@ app.get('/api/getAssessmentByStr/:id', AssessmentCtrl.getAssessmentByStrId);
 
 app.get('/api/myAssessments/:id', AssessmentCtrl.getMyAssessments);
 
-//TODO (jcd 12/15) match endpoints with front end
+app.get('/api/getFullResults/:id', ResultsCtrl.getFullResults);
 
-app.get('/api/getResults', ResultsCtrl.getResults);
-
-app.post('/api/admin/promo', PromoCtrl.addPromoCode);
+// app.post('/api/admin/promo', PromoCtrl.addPromoCode);
 
 //**********  Connections  **********//
 

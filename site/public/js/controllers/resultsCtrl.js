@@ -1,5 +1,8 @@
-app.controller('resultsCtrl', function($scope, mainService, getResults, $stateParams) {
+app.controller('resultsCtrl', function($scope, mainService, getFullResults, $stateParams) {
 
-	$scope.assessment = $stateParams.assessment_id;
-
+	$scope.assessment = getFullResults.assessment;
+	
+	$scope.concern = getFullResults.results.concern;
+	console.log(getFullResults);
+	$scope.text = getFullResults.resultsText;
 });

@@ -1,4 +1,4 @@
-app.controller('checkoutCtrl', function ($scope, mainService) {
+app.controller('checkoutCtrl', function ($rootScope, $scope, mainService, $state) {
     
     $scope.validEmail = false;
 
@@ -23,27 +23,56 @@ app.controller('checkoutCtrl', function ($scope, mainService) {
         }
         return price1;
     };
-
-    //TODO (jcd 12/16) needs user email and cart
-    $scope.makePayment = function () {
-        var user = {
-            email: $scope.email,
-            token: 'stripeToken',
-            cart: reviewCart
+    
+    //Stripe requires amount in cents
+    $scope.totalForStripe = function() {
+        return $scope.total()*100;
+    }
+    
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_uCz9Xv73uwGiR1olbpvE0uWA',
+        image: '/assets/lifeFitLogo.png',
+        locale: 'auto',
+        token: function(token) {
+        // Use the token to create the charge with a server-side script.
+        // You can access the token ID with `token.id`
+        console.log(token);
+        var total = $scope.totalForStripe();
+        mainService.handleStripePayment(token, total, reviewCart)
+            .then(function() {
+                $state.go('paymentSuccess');
+            })
+            .catch(function(err) {
+                $state.go('paymentError');
+            })
         }
-        mainService.makePayment(user);
+    });
+
+    $scope.pay = function (e) {
+        e.preventDefault();
+        var total = $scope.totalForStripe();
+     handler.open({
+      name: 'FitLife',
+      description: 'FitLife Assessment(s)',
+      amount: total,
+      email: $scope.email
+    });
     };
 
     $scope.checkEmail = function () {
         mainService.checkEmail($scope.email)
             .then(function () {
                 $scope.validEmail = true;
-                $scope.emailMessage = '';
+                $scope.emailMessage = 'Email is available!';
             })
             .catch(function () {
                 $scope.validEmail = false;
                 $scope.emailMessage = 'Email in use, please try a different email.'
             })
     }
+    
+    $rootScope.$on('$stateChangeStart', function() {
+        handler.close();
+    })
 
 });

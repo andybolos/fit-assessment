@@ -23,8 +23,18 @@ module.exports = {
 				if (err) {
 					res.status(500).json(err);
 				}
-				//TODO (jcd 12/16) might need to query to find the assessment names from the paid array
 				return res.status(200).json(user);
 			})
-	}	
+	},
+	getEmailFromScore: function (req, res) {
+		var scoreid = req.params.id;
+		
+		User.findOne({assessments: { $in: [scoreid]}})
+			.exec(function(err, user) {
+				if (err) {
+					return res.status(500).json(err);
+				}
+				return res.status(200).json({email: user.email})
+			})
+	}
 }

@@ -54,6 +54,9 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             resolve: {
                 freeResults: function (mainService, $stateParams) {
                     return mainService.getFreeResults($stateParams.id);
+                },
+                getEmail: function(mainService, $stateParams) {
+                    return mainService.getFreeEmail($stateParams.id)
                 }
             }
         })
@@ -70,7 +73,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: '../views/fullResults.html',
             controller: 'resultsCtrl',
             resolve: {
-                getResults: function (mainService, $stateParams) {
+                getFullResults: function (mainService, $stateParams) {
                     return mainService.getFullResults($stateParams.assessment_id);
                 }
             }

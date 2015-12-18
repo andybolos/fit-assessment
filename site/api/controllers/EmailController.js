@@ -37,28 +37,35 @@ module.exports = {
 	sendUserEmail: function(userId) {
 		var dfd = Q.defer();
 		var url = 'http://localhost:2727/#/list/' + userId;
-		var message = {
-			//TODO (jcd 12/17) update this with correct messages and emails
-			'html': '<h2>Thank you!</h2><br /><p>Please visit your page at ' + url  +' to take assessments or view results!</p>',
-			'text': 'Thank you! Please visit your page at ' + url + ' to take assessments or view results!',
-			'subject': 'LifeFit Assessment Results',
-			'from_email': 'test@test.com',
-			'to': [{
-				'email': userEmail,
-			}],
-			'headers': {
-				'Reply-To': 'test@test.com'
+		
+		User.findById(userId).exec(function(err, user) {
+			if (err) {
+				dfd.reject(err);
 			}
-		}
-			
-		mandrill_client.messages.send({'message': message}, 
-		function(result) {
-					console.log(result);
-					dfd.resolve(result);
-		}, 
-		function(err) {
-					console.log('A mandrill error occurred: ' + err.name + ' - ' + err.message);
-					dfd.reject(err);
+			var userEmail = user.email;
+			var message = {
+				//TODO (jcd 12/17) update this with correct messages and emails
+				'html': '<h2>Thank you!</h2><br /><p>Please visit your page at ' + url  +' to take assessments or view results!</p>',
+				'text': 'Thank you! Please visit your page at ' + url + ' to take assessments or view results!',
+				'subject': 'LifeFit Assessment Results',
+				'from_email': 'test@test.com',
+				'to': [{
+					'email': userEmail,
+				}],
+				'headers': {
+					'Reply-To': 'test@test.com'
+				}
+			}
+				
+			mandrill_client.messages.send({'message': message}, 
+			function(result) {
+				console.log(result);
+				dfd.resolve(result);
+			}, 
+			function(err) {
+				console.log('A mandrill error occurred: ' + err.name + ' - ' + err.message);
+				dfd.reject(err);
+			})
 		})
 		return dfd.promise;
 	},

@@ -1,18 +1,20 @@
-app.controller('previewCtrl', function($rootScope, $scope, mainService, freeResults, $state) {
+app.controller('previewCtrl', function($rootScope, $scope, mainService, freeResults, getEmail, $state) {
 
 	$scope.results = freeResults;
-	
+	$scope.email = getEmail;
+    $scope.price = 1000; //$10.00 (in cents) for stripe
+    console.log($scope.email);
 	console.log($scope.results);
     
    var handler = StripeCheckout.configure({
-    key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
-    // image: '/img/documentation/checkout/marketplace.png',
+    key: 'pk_test_uCz9Xv73uwGiR1olbpvE0uWA',
+    image: '/assets/lifeFitLogo.png',
     locale: 'auto',
     token: function(token) {
       // Use the token to create the charge with a server-side script.
       // You can access the token ID with `token.id`
       console.log(token);
-      mainService.handleStripeRCQPayment(token)
+      mainService.handleStripeRCQPayment(token, $scope.price)
         .then(function() {
             $state.go('paymentSuccess');
         })
@@ -27,7 +29,8 @@ app.controller('previewCtrl', function($rootScope, $scope, mainService, freeResu
      handler.open({
       name: 'FitLife',
       description: 'Readiness to Change full report',
-      amount: 1000
+      amount: $scope.price,
+      email: $scope.email
     });
     }
     

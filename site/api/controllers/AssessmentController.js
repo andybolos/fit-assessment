@@ -27,6 +27,7 @@ module.exports = {
 			if (err) {
 				return res.status(500).json(err);
 			}
+			console.log('user', user);
 			var filter = user.paid;
 			Assessment.find({ 'quiz_id':  { $in :  filter } }).exec(function (err, results) {
 				if (err) {
