@@ -8,8 +8,41 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
-// var passport = require('passport');
-// var LocalStrategy = require('passport-local');
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
+
+
+//********** Passport config *********//
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    AdminUser.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
+    });
+  }
+    ));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user._id);
+});
+
+passport.deserializeUser(function(id, cb) {
+  AdminUser.findById(id, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+var isAuthenticated = function (req, res, next) {
+	if (req.isAuthenticated()) {
+		next();
+	} else {
+		return res.status(403).send('Not logged in');
+	}
+};
 
 
 //**********  Controllers  **********//
@@ -21,7 +54,7 @@ var PaymentCtrl = require('./api/controllers/PaymentController');
 var UserCtrl = require('./api/controllers/UserController');
 
 //**********  Models  **********//
-
+var AdminUser = require('./api/models/AdminUserModel.js');
 
 //**********  Start Express  **********//
 
@@ -32,6 +65,32 @@ var app = express();
 app.use(express.static('./public'));
 app.use(cors());
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
+
+//**********  Auth Endpoints  **********//
+
+app.post('/auth/login', passport.authenticate('local', { failureRedirect: '/#/login' }),
+    function (req, res) {
+        return res.status(200).json({ success: true, user: req.user.toJSON() });   
+    });
+
+app.get('/auth/logout',
+  function(req, res){
+      req.logout();
+    return res.status(200).end();
+    });
+
+
+//********** Admin Endpoints  **********//
+
+app.get('/api/admin/getPromoCodes', /*isAuthenticated,*/ PromoCtrl.getPromoCodes);
+
+app.post('/api/admin/addPromoCode', /*isAuthenticated,*/ PromoCtrl.addPromoCode);
+
+app.post('/api/admin/updatePromoCode/:id', /*isAuthenticated,*/ PromoCtrl.updatePromoCode);
+
+app.delete('/api/admin/deletePromoCode/:id', /*isAuthenticated,*/ PromoCtrl.deletePromoCode);
 
 //**********  Endpoints  **********//
 
@@ -58,8 +117,6 @@ app.get('/api/getAssessmentByStr/:id', AssessmentCtrl.getAssessmentByStrId);
 app.get('/api/myAssessments/:id', AssessmentCtrl.getMyAssessments);
 
 app.get('/api/getFullResults/:id', ResultsCtrl.getFullResults);
-
-// app.post('/api/admin/promo', PromoCtrl.addPromoCode);
 
 //**********  Connections  **********//
 
