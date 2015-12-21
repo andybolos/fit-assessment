@@ -9,42 +9,44 @@
         </div>
     </nav>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Review Order</h2>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="item in cart">{{ item.title }}
+                            <span class="pull-right">
+                                $ {{ item.price }}</span>
+                        </li>
+                        <li class="list-group-item">Total
+                            <span class="pull-right">$ {{ total() }}</span>
+                        </li>
+                    </ul>
 
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Review Order</h2>
-            <div>
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="item in cart">{{ item.title }}
-                        <span class="pull-right">
-                            $ {{ item.price }}</span>
-                    </li>
-                    <li class="list-group-item">Total <span class="pull-right">$ {{ total() }}</span>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <h2>Enter Email</h2>
-            <form>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email" ng-model="email">
                 </div>
-                <button ng-if="!validEmail" ng-click="checkEmail()">Check Email</button>
+            </div>
+            <div class="col-md-6">
+                <h2>Enter Email</h2>
+                <form>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email" ng-model="email">
+                    </div>
+                    <button ng-if="!validEmail" ng-click="checkEmail()" class="btn btn-default btn-primary">Check Email</button>
                     <p ng-if="emailMessage">{{emailMessage}}</p>
-                <!--<button ng-if="validEmail" type="button" name="button" class="btn btn-primary" ng-click="makePayment()">Check Out</button>-->
-                <button ng-if="validEmail" class="btn btn-default btn-primary" ng-click="pay($event)">Checkout</button>
-            </form>
+                    <!--<button ng-if="validEmail" type="button" name="button" class="btn btn-primary" ng-click="makePayment()">Check Out</button>-->
+                    <button ng-if="validEmail" class="btn btn-default btn-primary" ng-click="pay($event)">Checkout</button>
+                </form>
 
 
-            <!--<h2>Use a Promo Code</h2>
+                <!--<h2>Use a Promo Code</h2>
             <form>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter a Promo Code...">
                 </div>
                 <button type="button" name="button" class="btn btn-primary" ng-click="makePayment()">Check Out</button>
             </form>-->
+            </div>
         </div>
     </div>
 </div>
