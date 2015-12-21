@@ -6,16 +6,27 @@ app.controller('dashboardCtrl', function($scope, promoCodes, adminService, authS
         $scope.addingCode = true;
     }
     
+    $scope.co
+    
+    
+    
     $scope.editPromoCode = function(editCode) {
-        $scope.editingCode = editCode;
+        // $scope.editingCode = editCode;
+        $scope.editingCode = {
+            _id: editCode._id,
+            code: editCode.code,
+            client_name: editCode.client_name,
+            client_email: editCode.client_email
+        }
     }
     
-    $scope.cancel = function() {
+    $scope.cancel = function(code) {
         $scope.addingCode = false;
         $scope.editingCode = false;
         $scope.deletingCode = false;
         $scope.errorMsg = '';
         $scope.errorEditMsg = '';
+        console.log(code);
     }
     
     $scope.submitPromoCode = function (code) {

@@ -83,6 +83,16 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
                 }
             }
         })
+        .state('rcqResults', {
+            url: '^/results/rcq/:assessment_id',
+            templateUrl: '../views/rcqResults.html',
+            controller: 'rcqResultsCtrl',
+            resolve: {
+                getRCQResults: function(mainService, $stateParams) {
+                    return mainService.getFullRCQResults($stateParams.assessment_id);
+                }
+            }
+        })
 
 });
 

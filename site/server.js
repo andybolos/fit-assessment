@@ -118,6 +118,8 @@ app.get('/api/myAssessments/:id', AssessmentCtrl.getMyAssessments);
 
 app.get('/api/getFullResults/:id', ResultsCtrl.getFullResults);
 
+app.get('/api/getFullRCQResults/:id', ResultsCtrl.getFullRCQResults);
+
 //**********  Connections  **********//
 
 var port = 2727;

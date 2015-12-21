@@ -18,5 +18,13 @@ app.controller('listCtrl', function($scope, mainService, assessments, $state, us
         mainService.setAssessment(obj);
         $state.go('assessment')
     }
+    
+    $scope.viewResults = function(assessment) {
+        if (assessment.quiz_id === 'rcq') {
+            $state.go('rcqResults', {assessment_id: assessment.completed});
+        } else {
+            $state.go('fullResults', {assessment_id: assessment.completed})
+        }
+    }
 
 });

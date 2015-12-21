@@ -14,12 +14,14 @@
     <div class="container" ng-if="addingCode">
         <div class="well">
             <h3>Enter New Promo Details</h3>
+            <form>
             <input type="text" placeholder="Client Name" ng-model="code.client_name" />
             <input type="text" placeholder="Client Email" ng-model="code.client_email" />
             <input type="text" placeholder="Enter Code" ng-model="code.code" />
             <button class="btn btn-info" ng-click="submitPromoCode(code)">Submit</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-warning" ng-click="cancel(addingCode)">Cancel</button>
             <p ng-if="errorMsg"> {{errorMsg}} </p>
+            </form>
         </div>
     </div>
     <div class="container" ng-if="editingCode">
@@ -28,7 +30,7 @@
             <input type="text" placeholder="Client Name" ng-model="editingCode.client_name" />
             <input type="text" placeholder="Client Email" ng-model="editingCode.client_email" />
             <button class="btn btn-info" ng-click="updatePromoCode(editingCode)">Submit</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-warning" ng-click="cancel(editingCode)">Cancel</button>
             <p ng-if="errorEditMsg"> {{errorEditMsg}} </p>
         </div>
     </div>

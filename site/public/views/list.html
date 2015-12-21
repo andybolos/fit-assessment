@@ -18,7 +18,7 @@
                     </div>
                     <div ng-if="assessment.completed">
                         {{assessment.title}} 
-                        <a ui-sref="fullResults({assessment_id: assessment.completed})">(view results)</a>
+                        <a ng-click="viewResults(assessment)">(view results)</a>
                     </div>
                 </div>
             </ul>

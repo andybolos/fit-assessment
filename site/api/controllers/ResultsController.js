@@ -31,6 +31,7 @@
 
 var Score = require('../models/ScoresModel');
 var ScoreCtrl = require('./ScoreController');
+var ReportCtrl = require('./ReportController');
 var Assessment = require('../models/AssessmentModel');
 var Q = require('q');
 
@@ -87,6 +88,20 @@ module.exports = {
 		})
 		
 	},
+    getFullRCQResults: function(req, res) {
+        var id = req.params.id;
+        Score.findById(id).exec(function(err, score) {
+            console.log(err);
+            console.log(score);
+			var rcq_score = ScoreCtrl.rcq_score.apply(this, score.scores);
+			if (!rcq_score) {
+				return res.status(500).send('Error processing results');
+			} else {
+                var report = ReportCtrl.buildReport('rcq');
+				return res.status(200).json({rcq_score: rcq_score, report: report});
+			}
+		})
+    },
 	getFinalResults: function (quizName, concern) {
 		var dfd = Q.defer();
 		var resultsText = {};
