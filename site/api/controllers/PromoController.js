@@ -1,62 +1,105 @@
 var moment = require('moment');
 var Promo = require('../models/PromoModel');
+var _ = require('underscore');
+var Q = require('q');
 
 module.exports = {
+    getPromoCodes: function (req, res) {
+        Promo.find()
+        .lean()
+        .exec(function (err, codes) {
+            if (err) {
+                return res.status(500).json(err);
+            }
+            module.exports.countUses(codes)
+                .then(function (promosWithCount) {
+                    console.log(promosWithCount);
+                    return res.status(200).json(promosWithCount);
+                })
+        })  
+    },
 	addPromoCode: function (req, res) {
-		var promo = req.body.promo;
+		var promo = req.body;
 		var newPromo = new Promo(promo);
 		newPromo.save(function (err, results) {
 			if (err) {
 				return res.status(500).json(err);
 			}
 			//TODO (jcd 12/16) I'm returning all codes so the view can be updated. May need to be paginated at some point.
-			Promo.find().exec(function (err, promos) {
+			Promo.find().lean().exec(function (err, promos) {
 				if (err) {
 					return res.status(500).json(err);
 				}
-				return res.status(200).json(promos);
+                module.exports.countUses(promos)
+                    .then(function(promosWithCount) {
+				        return res.status(200).json(promosWithCount);
+                    })
 			})
-			return res.status(200).json(results); 
 		})
 	},
 	updatePromoCode: function (req, res) {
 		// should send just the fields that need updated, and not the id, which should be in the endpoint params
 		var id = req.params.id;
-		var promo = req.body.promo;
+		var promo = req.body;
 		Promo.findByIdAndUpdate(id, promo, { new: true }).exec(function (err, updated) {
 			if (err) {
 				return res.status(500).json(err);
 			}
-			Promo.find().exec(function (err, promos) {
+			Promo.find().lean().exec(function (err, promos) {
 				if (err) {
 					return res.status(500).json(err);
 				}
-				return res.status(200).json(promos);
+                module.exports.countUses(promos)
+                    .then(function(promosWithCount) {
+                        return res.status(200).json(promosWithCount);
+                    })
 			})
 		})
 	},
-	// countUses: function (promos) {
-	// 	var promosWithCount = promos;
-	// 	var promises = [];
-	// 	for (var i = 0; i < promosWithCount.length; i++) {
-	// 		var dfd = Q.defer();
-	// 		var promise = Promo.findById(promosWithCount).exec(err, promo) {
-	// 			if (err) {
-	// 				dfd.reject(err);
-	// 			}
-	// 			var redemptions = promo.redemptions || [];
-	// 			var thisMonth = 0;
-	// 			var lastMonth = 0;
-	// 			var twoMonths = 0;
-	// 			var total = redemptions.length;
-	// 			for (var j = 0; j < total; j++) {
-	// 				if (moment(redemptions[j]).isBetween())
-	// 			}
-	// 		}
-	// 	}
-		
-	// 	Q.all(promises).then(function () {
-	// 		return promosWithCount;
-	// 	})
-	// }
+    deletePromoCode: function(req, res) {
+        var id = req.params.id;
+        Promo.findByIdAndRemove(id).exec(function(err, results) {
+            if (err) {
+                return res.status(500).json(err);
+            }
+            Promo.find().lean().exec(function(err, promos) {
+                if (err) {
+                    return res.status(500).json(err);
+                }
+                module.exports.countUses(promos)
+                    .then(function(promosWithCount) {
+                        return res.status(200).json(promosWithCount);
+                    })
+            })
+        })
+    },
+	countUses: function (promos) {
+        var dfd = Q.defer();
+		var promosWithCount = promos;
+		var promises = [];
+        var totals = [];
+        var tomorrow = moment(moment().startOf('day')).add(1, 'days');
+        var thisMonth = moment().startOf('month');
+        var lastMonth = moment(thisMonth).subtract(1, 'months'); 
+        
+		for (var i = 0; i < promosWithCount.length; i++) {
+            console.log(promosWithCount[i])
+            
+            promosWithCount[i].total = promosWithCount[i].redemptions.length;
+            
+            promosWithCount[i].month2date = _.filter(promosWithCount[i].redemptions, function(date) {
+                return (moment(date) >= thisMonth && moment(date) <= tomorrow )
+            }).length;
+            
+            promosWithCount[i].lastMonth = _.filter(promosWithCount[i].redemptions, function(date) {
+                return (moment(date) >= lastMonth && moment(date) <= thisMonth)
+            }).length;
+            
+
+        }
+        
+        dfd.resolve(promosWithCount);
+        
+        return dfd.promise;
+	}
 }

@@ -1,37 +1,66 @@
-app.service('adminService', function() {
+app.service('adminService', function($q, $http) {
 
-    var clients = [{
-        name: 'Dan Smith',
-        email: 'dan@smith.com',
-        code: 'fit4lyfe',
-        month2date: 7,
-        lastMonth: 32,
-        total: 39
-    },{
-        name: 'Dan Smith',
-        email: 'dan@smith.com',
-        code: 'fit4lyfe',
-        month2date: 7,
-        lastMonth: 32,
-        total: 39
-    },{
-        name: 'Dan Smith',
-        email: 'dan@smith.com',
-        code: 'fit4lyfeandreallyawesomeandlong',
-        month2date: 7,
-        lastMonth: 32,
-        total: 39
-    },{
-        name: 'Dan Smith',
-        email: 'dan@smith.com',
-        code: 'fit4lyfe',
-        month2date: 7,
-        lastMonth: 32,
-        total: 39
-    }];
-
-    this.clients = function() {
-        return clients;
-    };
+    this.getPromoCodes = function () {
+        var dfd = $q.defer();
+        
+        $http.get('/api/admin/getPromoCodes')
+            .then(function (response) {
+                var codes = response.data;
+                dfd.resolve(codes);
+            })
+            .catch(function (err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
+    }
+    
+    this.submitPromoCode = function (code) {
+        var dfd = $q.defer();
+        
+        $http.post('/api/admin/addPromoCode', code)
+            .then(function (response) {
+                var codes = response.data;
+                dfd.resolve(codes);
+            })
+            .catch(function (err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
+    }
+    
+    this.updatePromoCode = function(code) {
+        var dfd = $q.defer();
+        var id = code._id;
+        delete code._id;
+        
+        $http.post('/api/admin/updatePromoCode/' + id, code)
+            .then(function(response) {
+                var codes = response.data;
+                dfd.resolve(codes);
+            })
+            .catch(function(err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
+        
+    }
+    
+    this.deletePromoCode = function(id) {
+        var dfd = $q.defer();
+        
+        $http.delete('/api/admin/deletePromoCode/' + id)
+            .then(function(response) {
+                var codes = response.data;
+                dfd.resolve(codes);
+            })
+            .catch(function(err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
+    }
 
 });

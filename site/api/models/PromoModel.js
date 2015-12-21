@@ -2,9 +2,12 @@ var Mongoose = require('mongoose');
 var Schema = Mongoose.Schema;
 
 var Promo = new Schema({
-	firstName: String,
-	lastName: String,
-	email: String,
+	client_name: String,
+    client_email: String,
+    code: {
+      type: String,
+      unique: true  
+    },
 	redemptions: [Date]
 });
 

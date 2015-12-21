@@ -5,27 +5,27 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
     $stateProvider
         .state('home', {
-            url: '/home',
+            url: '^/home',
             templateUrl: '../views/home.html',
             controller: 'homeCtrl'
         })
         .state('menu', {
-            url: '/menu',
+            url: '^/menu',
             templateUrl: '../views/menu.html',
             controller: 'menuCtrl'
         })
         .state('checkout', {
-            url: '/checkout',
+            url: '^/checkout',
             templateUrl: '../views/checkout.html',
             controller: 'checkoutCtrl'
         })
         .state('assessment', {
-            url: '/assessment',
+            url: '^/assessment',
             templateUrl: '../views/assesment.html',
             controller: 'questionCtrl'
         })
         .state('list', {
-            url: '/list/:userId',
+            url: '^/list/:userId',
             templateUrl: '../views/list.html',
             controller: 'listCtrl',
             resolve: {
@@ -38,17 +38,22 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             }
         })
         .state('login', {
-            url: '/login',
+            url: '^/login',
             templateUrl: '../views/login.html',
             controller: 'loginCtrl'
         })
         .state('dashboard', {
-            url: '/dashboard',
+            url: '^/dashboard',
             templateUrl: '../views/dashboard.html',
-            controller: 'dashboardCtrl'
+            controller: 'dashboardCtrl',
+            resolve: {
+                promoCodes: function (adminService) {
+                    return adminService.getPromoCodes();
+                }
+            }
         })
         .state('resultsPreview', {
-            url: '/results/preview/:id',
+            url: '^/results/preview/:id',
             templateUrl: '../views/freeResults.html',
             controller: 'previewCtrl',
             resolve: {
@@ -61,20 +66,30 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             }
         })
         .state('paymentSuccess', {
-            url: '/thanks',
+            url: '^/thanks',
             templateUrl: '../views/paymentSuccess.html'
         })
         .state('paymentError', {
-            url: '/sorry',
+            url: '^/sorry',
             templateUrl: '../views/paymentError.html'
         })
         .state('fullResults', {
-            url: '/results/:assessment_id',
+            url: '^/results/:assessment_id',
             templateUrl: '../views/fullResults.html',
             controller: 'resultsCtrl',
             resolve: {
                 getFullResults: function (mainService, $stateParams) {
                     return mainService.getFullResults($stateParams.assessment_id);
+                }
+            }
+        })
+        .state('rcqResults', {
+            url: '^/results/rcq/:assessment_id',
+            templateUrl: '../views/rcqResults.html',
+            controller: 'rcqResultsCtrl',
+            resolve: {
+                getRCQResults: function(mainService, $stateParams) {
+                    return mainService.getFullRCQResults($stateParams.assessment_id);
                 }
             }
         })

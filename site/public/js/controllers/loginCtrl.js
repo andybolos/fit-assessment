@@ -1,6 +1,7 @@
-app.controller('loginCtrl', function($scope, $state) {
+app.controller('loginCtrl', function($scope, $state, authService) {
 
-    $scope.login = function() {
-        $state.go('dashboard')
+    $scope.login = function () {
+        authService.login($scope.user);
+        // $state.go('dashboard')
     }
 })

@@ -194,6 +194,21 @@ app.service('mainService', function($state, $q, $http, $window) {
         return dfd.promise;
     }
     
+    this.getFullRCQResults = function(id) {
+        var dfd = $q.defer();
+        
+        $http.get('/api/getFullRCQResults/' + id)
+            .then(function(response) {
+                var score = response.data;
+                dfd.resolve(score);
+            })
+            .catch(function(err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
+    }
+    
     this.handleStripeRCQPayment = function(tokenObj, amount) {
         var dfd = $q.defer();
         console.log(tokenObj)
