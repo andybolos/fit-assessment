@@ -20,8 +20,8 @@ hr {
   text-transform: uppercase; }
 
 .btn-xlg {
-  padding: 18px 28px;
-  font-size: 30px;
+  padding: 14px 20px;
+  font-size: 1.6em;
   line-height: normal;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -59,7 +59,7 @@ hr {
       display: inline-flex; }
       #navi .navibar ul li a {
         padding: 15px;
-        font-size: 1.4em;
+        font-size: 1.2em;
         color: #000; }
       #navi .navibar ul li a:hover {
         text-decoration: none;
@@ -90,39 +90,50 @@ hr {
       margin: 120px 0 20px;
       color: #ffffff;
       padding: 0;
-      font-size: 5em;
+      font-size: 4em;
       font-weight: 600; }
     #hero .text-box h2 {
       color: #ffffff;
       padding: 0;
       margin: 7px 0;
-      font-size: 2.5em; }
-  #hero .square_row {
+      font-size: 2.2em; }
+  #hero #square_row {
+    padding: 0 25px;
+    margin: 0 50px;
     position: absolute;
-    bottom: 0; }
-    #hero .square_row .square {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 70%;
+    display: block; }
+    #hero #square_row .square {
       text-align: center;
       padding: 10px;
-      color: #fff; }
-      #hero .square_row .square h3 {
+      color: #fff;
+      height: 100%; }
+      #hero #square_row .square h3 {
         margin: 0;
         padding: 8px 0;
         font-size: 1.7em;
         font-weight: 500; }
-      #hero .square_row .square p {
+      #hero #square_row .square p {
         margin: 0;
         font-size: 1.2em; }
-    #hero .square_row .purple_square {
+    #hero #square_row .purple_square {
       background: #7C375E url(arrow1.png) 0 100% no-repeat;
       background-size: contain; }
-    #hero .square_row .green_square {
+    #hero #square_row .green_square {
       background: #54802C url(arrow2.png) 0 100% no-repeat;
       background-size: contain; }
-    #hero .square_row .blue_square {
+    #hero #square_row .blue_square {
       background: #31515B url(arrow3.png) 0 100% no-repeat;
       background-size: contain; }
-    #hero .square_row .start_square {
+    #hero #square_row .start_square {
       background-color: #3399cc; }
+      #hero #square_row .start_square a {
+        margin-top: 40px; }
+    #hero #square_row .inner {
+      height: 100%; }
 
 #greybox {
   height: 800px;
@@ -132,12 +143,12 @@ hr {
     padding-top: 30px;
     position: relative; }
     #greybox .content .title .program {
-      font-size: 4em;
+      font-size: 3em;
       text-align: center; }
     #greybox .content .title h2 {
       text-align: center;
       margin: 10px 0;
-      font-size: 2.5em; }
+      font-size: 1.8em; }
   #greybox .content .list_pic {
     position: relative; }
     #greybox .content .list_pic img {
@@ -155,7 +166,7 @@ hr {
       color: #3399cc;
       margin-left: -28px;
       padding-right: 10px;
-      font-size: 0.8em; }
+      font-size: 0.7em; }
     #greybox .content .bullets ul li {
       font-size: 1.6em;
       margin: 15px 0; }
@@ -164,7 +175,7 @@ hr {
   padding-top: 30px;
   margin: 0 50px; }
   #bubbles .benefits {
-    font-size: 4em;
+    font-size: 3em;
     text-align: center; }
   #bubbles .left_text,
   #bubbles .right_text {
@@ -176,10 +187,11 @@ hr {
     #bubbles .right_text h1 {
       margin-top: 5%;
       margin-bottom: 0;
-      padding: 20px; }
+      padding: 20px;
+      font-size: 2.2em; }
     #bubbles .left_text p,
     #bubbles .right_text p {
-      font-size: 1.4em;
+      font-size: 1.2em;
       padding: 20px; }
   #bubbles .right_pic img,
   #bubbles .left_pic img {
@@ -220,41 +232,58 @@ hr {
   padding-top: 30px; }
   #assessments .course {
     text-align: center;
-    font-size: 4em; }
+    font-size: 3em; }
   #assessments .chunk {
     padding: 0 25px; }
     #assessments .chunk blockquote {
       margin: 0; }
     #assessments .chunk h1 {
       margin-bottom: 0;
-      padding: 0 20px; }
+      padding: 0 20px;
+      font-size: 2.2em; }
     #assessments .chunk p {
-      font-size: 1.4em;
+      font-size: 1.2em;
       padding: 20px; }
     #assessments .chunk .start {
       text-align: center;
       margin-top: 30%; }
 
 #footer {
-  background-color: #ddd;
-  display: inline-flex;
-  padding: 10px 30px 7px;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center; }
-  #footer .navi_logo_foot a img {
-    height: 80px;
-    padding: 10px; }
-  #footer .navibar_foot {
-    display: inline; }
-    #footer .navibar_foot ul {
-      display: inline-flex; }
-      #footer .navibar_foot ul li a {
-        padding: 15px;
-        font-size: 1.2em;
-        color: #000; }
-      #footer .navibar_foot ul li a:hover {
-        text-decoration: none;
-        border-bottom: 2px #3399cc solid; }
+  background-color: #ccc; }
+  #footer .footie {
+    display: inline-flex;
+    padding: 10px 30px 7px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center; }
+    #footer .footie .navi_logo_foot a img {
+      height: 80px;
+      padding: 10px; }
+    #footer .footie .navibar_foot {
+      display: inline; }
+      #footer .footie .navibar_foot ul {
+        display: inline-flex; }
+        #footer .footie .navibar_foot ul li a {
+          padding: 15px;
+          font-size: 1.2em;
+          color: #000; }
+        #footer .footie .navibar_foot ul li a:hover {
+          text-decoration: none;
+          border-bottom: 2px #3399cc solid; }
+  #footer .copy p {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 20px;
+    color: #000; }
+
+.success_container {
+  margin-top: 20%;
+  text-align: center; }
+
+.assessment {
+  margin-top: 200px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto; }
 
 /*# sourceMappingURL=style.css.map */
