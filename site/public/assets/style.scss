@@ -29,12 +29,12 @@ hr {
     text-transform: uppercase;
 }
 .btn-xlg {
-    padding: 18px 28px;
-    font-size: 30px; //change this to your desired size
+    padding: 14px 20px;
+    font-size: 1.6em; //change this to your desired size
     line-height: normal;
     -webkit-border-radius: 8px;
-       -moz-border-radius: 8px;
-            border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
 }
 
 // Assessment
@@ -84,7 +84,7 @@ hr {
             li {
                 a {
                     padding: 15px;
-                    font-size: 1.4em;
+                    font-size: 1.2em;
                     color: #000;
                 }
                 a:hover {
@@ -116,6 +116,7 @@ hr {
                 margin-right: auto;
                 margin-left: auto;
                 height: 120px;
+
                 // background-color: #fff;
                 padding: 12px 12px 8px;
                 border-radius: 10px;
@@ -126,23 +127,31 @@ hr {
             margin: 120px 0 20px;
             color: $white;
             padding: 0;
-            font-size: 5em;
+            font-size: 4em;
             font-weight: 600;
         }
         h2 {
             color: $white;
             padding: 0;
             margin: 7px 0;
-            font-size: 2.5em;
+            font-size: 2.2em;
         }
     }
-    .square_row {
+    #square_row {
+        padding: 0 25px;
+        margin: 0 50px;
         position: absolute;
         bottom: 0;
+        left: 0;
+        right: 0;
+        top: 70%;
+        display: block;
         .square {
             text-align: center;
             padding: 10px;
             color: #fff;
+            height: 100%;
+
             h3 {
                 margin: 0;
                 padding: 8px 0;
@@ -168,6 +177,12 @@ hr {
         }
         .start_square {
             background-color: $blue;
+            a {
+                margin-top: 40px;
+            }
+        }
+        .inner {
+            height: 100%;
         }
     }
 }
@@ -182,13 +197,13 @@ hr {
             padding-top: 30px;
             position: relative;
             .program {
-                font-size: 4em;
+                font-size: 3em;
                 text-align: center;
             }
             h2 {
                 text-align: center;
                 margin: 10px 0;
-                font-size: 2.5em;
+                font-size: 1.8em;
             }
         }
         .list_pic {
@@ -213,7 +228,7 @@ hr {
                     color: $blue;
                     margin-left: -28px;
                     padding-right: 10px;
-                    font-size: 0.8em;
+                    font-size: 0.7em;
                 }
                 li {
                     font-size: 1.6em;
@@ -228,7 +243,7 @@ hr {
     margin: 0 50px;
     .benefits {
         @extend .blue;
-        font-size: 4em;
+        font-size: 3em;
         text-align: center;
     }
     .left_text,
@@ -241,9 +256,10 @@ hr {
             margin-top: 5%;
             margin-bottom: 0;
             padding: 20px;
+            font-size: 2.2em;
         }
         p {
-            font-size: 1.4em;
+            font-size: 1.2em;
             padding: 20px;
         }
     }
@@ -295,7 +311,7 @@ hr {
     .course {
         text-align: center;
         @extend .blue;
-        font-size: 4em;
+        font-size: 3em;
     }
     .chunk {
         padding: 0 25px;
@@ -306,14 +322,16 @@ hr {
             margin-bottom: 0;
             padding: 0 20px;
             @extend .blue;
+            font-size: 2.2em;
         }
         p {
-            font-size: 1.4em;
+            font-size: 1.2em;
             padding: 20px;
         }
         .start {
             text-align: center;
             margin-top: 30%;
+
             // a {
             //     display: block;
             //     margin-left: auto;
@@ -323,35 +341,61 @@ hr {
     }
 }
 #footer {
-    background-color: #ddd;
-    display: inline-flex;
-    padding: 10px 30px 7px;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    .navi_logo_foot {
-        a {
-            img {
-                height: 80px;
-                padding: 10px;
-            }
-        }
-    }
-    .navibar_foot {
-        display: inline;
-        ul {
-            display: inline-flex;
-            li {
-                a {
-                    padding: 15px;
-                    font-size: 1.2em;
-                    color: #000;
-                }
-                a:hover {
-                    text-decoration: none;
-                    border-bottom: 2px $blue solid;
+    background-color: #ccc;
+    .footie {
+        display: inline-flex;
+        padding: 10px 30px 7px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        .navi_logo_foot {
+            a {
+                img {
+                    height: 80px;
+                    padding: 10px;
+
                 }
             }
         }
+        .navibar_foot {
+            display: inline;
+            ul {
+                display: inline-flex;
+                li {
+                    a {
+                        padding: 15px;
+                        font-size: 1.2em;
+                        color: #000;
+                    }
+                    a:hover {
+                        text-decoration: none;
+                        border-bottom: 2px $blue solid;
+                    }
+                }
+            }
+        }
     }
+    .copy {
+        p {
+            text-align: center;
+            margin: 0;
+            padding-bottom: 20px;
+            color: #000;
+        }
+    }
+}
+
+// Menu
+
+//  Payment Success
+.success_container {
+    margin-top: 20%;
+    text-align: center;
+}
+
+.assessment {
+    margin-top: 200px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }

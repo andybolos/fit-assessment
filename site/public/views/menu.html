@@ -8,32 +8,34 @@
             </div>
         </div>
     </nav>
-    <section>
+    <section class="container">
         <h1>Choose the assessment right for you</h1>
         <ul class="list-group">
             <li class="list-group-item">Readiness to Change
                 <span class="pull-right">
-                    <input type="checkbox" ng-model="assessments.free.selected"> Free</span>
+                     Free <input type="checkbox" ng-model="assessments.free.selected"></span>
             </li>
             <li class="list-group-item"> Eating Behaviors / Body Image
                 <span class="pull-right">
-                    <input type="checkbox" ng-model="assessments.eating.selected">$7.99</span>
+                    $7.99 <input type="checkbox" ng-model="assessments.eating.selected"></span>
             </li>
             <li class="list-group-item">Stress
                 <span class="pull-right">
-                    <input type="checkbox" ng-model="assessments.stress.selected">$7.99</span>
+                    $7.99 <input type="checkbox" ng-model="assessments.stress.selected"></span>
             </li>
             <li class="list-group-item">Depression
                 <span class="pull-right">
-                    <input type="checkbox" ng-model="assessments.depression.selected">$7.99</span>
+                    $7.99 <input type="checkbox" ng-model="assessments.depression.selected"></span>
             </li>
             <li class="list-group-item">Anxiety
                 <span class="pull-right">
-                    <input type="checkbox" ng-model="assessments.anxiety.selected">$7.99</span>
+                    $7.99 <input type="checkbox" ng-model="assessments.anxiety.selected"></span>
             </li>
             <li class="list-group-item pull-right">Total ${{ total() }}</span>
             </li>
         </ul>
-        <button type="button" class="btn btn-primary" ng-click="checkout(assessments)">Check Out</button>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary pull-right" ng-click="checkout(assessments)">Check Out</button>
     </section>
 </div>
