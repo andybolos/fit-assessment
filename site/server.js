@@ -94,6 +94,8 @@ app.delete('/api/admin/deletePromoCode/:id', /*isAuthenticated,*/ PromoCtrl.dele
 
 //**********  Endpoints  **********//
 
+app.get('/api/getAssessmentList', AssessmentCtrl.getAssessmentList);
+
 app.post('/api/checkEmail', UserCtrl.checkEmail);
 
 app.post('/api/submitFreeAssessment', ScoreCtrl.addFreeAssessment);
@@ -119,6 +121,14 @@ app.get('/api/myAssessments/:id', AssessmentCtrl.getMyAssessments);
 app.get('/api/getFullResults/:id', ResultsCtrl.getFullResults);
 
 app.get('/api/getFullRCQResults/:id', ResultsCtrl.getFullRCQResults);
+
+//********** Promo-related endpoints *****//
+
+app.post('/api/promo/submit', PromoCtrl.redeemPromo);
+
+app.post('/api/submitPromoScore', PromoCtrl.submitPromoScore);
+
+app.get('/api/getPromoResultsByCode/:code', PromoCtrl.getResultsByCode)
 
 //**********  Connections  **********//
 

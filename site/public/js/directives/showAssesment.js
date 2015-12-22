@@ -2,8 +2,12 @@ app.directive('showAssesment', function (mainService, assessments, $window) {
 
     return {
         restrict: 'E',
-        scope: {}, // isolate scope
-        templateUrl: '../../views/assesmentbox.html',
+        scope: {
+            promo: '=',
+            name: '=',
+            promoCode: '='
+        }, // isolate scope
+        templateUrl: '../../views/assessmentbox.html',
         link: function (scope, elem, attrs) {
             var myScore = [];
             var test = 1;
@@ -49,13 +53,18 @@ app.directive('showAssesment', function (mainService, assessments, $window) {
                     scope.question = active.questions[scope.id];
                 } else {
                     scope.inProgress = false;
-                    if (!$window.sessionStorage.user) {
-                        scope.userInfo = true;
+                    if (scope.promo) {
+                        scope.promoComplete = true;
                     } else {
-                        var user = JSON.parse($window.sessionStorage.user);
-                        scope.user = user;
-                        scope.userId = user._id;
-                        scope.paidSubmitPending = true;
+                        if (!$window.sessionStorage.user) {
+                            scope.userInfo = true;
+                        } else {
+                            var user = JSON.parse($window.sessionStorage.user);
+                            scope.user = user;
+                            scope.userId = user._id;
+                            scope.paidSubmitPending = true;
+                        }
+
                     }
                 }
                 // scope.getQuestion(quiz);
@@ -111,6 +120,18 @@ app.directive('showAssesment', function (mainService, assessments, $window) {
                         scope.errorMessage = 'There was a problem processing your request.';
                         console.log(scope.errorMessage);
                     })
+            }
+            
+            scope.submitPromo = function () {
+                var promoObj = {
+                    name: scope.name,
+                    promo: scope.promo,
+                    promoCode: scope.promoCode,
+                    assessment_name: active.quiz_id,
+                    assessment_id: active._id,
+                    scores: myScore
+                }
+                mainService.submitPromoScore(promoObj);
             }
 
         }

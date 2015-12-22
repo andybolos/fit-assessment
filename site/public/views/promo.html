@@ -1,0 +1,25 @@
+<h2>
+    Promo page    
+</h2>
+<div ng-if="!validPromo">
+    <input type="text" placeholder="Enter promo code" ng-model="promoCode" />
+    <button ng-click="submitPromoCode(promoCode)">Submit</button>
+    <p ng-if="errorMsg">{{errorMsg}}</p>
+</div>
+
+<!--<p ng-if="validPromo">Promo is valid</p>-->
+<div ng-if="validPromo">
+    <form name="selectAssessment">
+    <div ng-repeat="assessment in assessments track by assessment._id">
+        <label> 
+        <input type="radio" ng-model="$parent.selected" ng-value="assessment" />
+        {{assessment.title}}
+        </label><br />
+    </div>
+    </form>
+    <div ng-if="selected">
+        <label> Enter Name </label>
+        <input type="text" placeholder="Name" ng-model="name"/>
+        <button ng-click="getAssessment(selected, name, validPromo)">Take Assessment</button>
+    </div>
+</div>

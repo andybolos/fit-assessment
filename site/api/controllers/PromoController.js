@@ -1,5 +1,6 @@
 var moment = require('moment');
 var Promo = require('../models/PromoModel');
+var Score = require('../models/ScoresModel');
 var _ = require('underscore');
 var Q = require('q');
 
@@ -101,5 +102,46 @@ module.exports = {
         dfd.resolve(promosWithCount);
         
         return dfd.promise;
-	}
+    },
+    redeemPromo: function (req, res) {
+        var code = req.body.code;
+        Promo.findOne({ code: code }).exec(function (err, promo) {
+            if (err) {
+                return res.status(500).json(err);
+            }
+            if (!promo) {
+                return res.status(200).json({success: false, message: 'Promo code not found'})
+            }
+            var now = moment();
+            promo.redemptions.push(now);
+            promo.save(function (err, saved) {
+                if (err) {
+                    return res.status(500).json(err);
+                }
+                return res.status(200).json({success: true})
+            })
+        })
+    },
+    submitPromoScore: function (req, res) {
+        var scoreObj = req.body;
+        var newScore = new Score(scoreObj);
+        newScore.save(function (err, saved) {
+            if (err) {
+                return res.status(500).json(err);
+            }
+            console.log(saved);
+            // TODO (jcd 12/21) Email results to client (maybe only once per day on cron job?)
+            return res.status(200).json({success: true})
+        })
+    },
+    getResultsByCode: function (req, res) {
+        var code = req.params.code;
+        Score.find({ promoCode: code }).exec(function (err, results) {
+            if (err) {
+                return res.status(500).json(err);
+            }
+            // TODO (jcd 12/21) Process these results
+            return res.status(200).json({ results: results });
+        })
+    }
 }

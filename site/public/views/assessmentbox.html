@@ -3,7 +3,7 @@
         <h2>You are about to start the {{ assessment }} assessment.</h2>
         <button type="button" name="button" class="btn btn-primary" ng-click="start()">Start Assessment</button>
     </div>
-    <div ng-show="userInfo">
+    <div ng-show="userInfo && !promo">
         <h2>Almost done. Please enter your email and your results will be sent to you.</h2>
         <input type="email" name="name" placeholder="Email..." ng-model="email">
         <button ng-if="!validEmail" class="btn btn-primary" ng-click="checkEmail()">Check Email</button>
@@ -11,7 +11,7 @@
         <br />
         <p ng-if="emailMessage">{{emailMessage}}</p>
     </div>
-    <div ng-show="success">
+    <div ng-show="success && !promo">
         <h2>Congrats! Your results have been emailed to you!</h2>
         <a ui-sref="home" class="btn btn-primary">Return Home</a>
     </div>
@@ -21,40 +21,44 @@
         <div class="scale_rating">
             <form class="" name="scale_rating" novalidate>
                 <label>
-                    <input type="radio" name="scale" ng-value="1" ng-model="scale.answer" required>Strongly Disagree
+                    <input type="radio" ng-change="next(scale.answer)" name="scale" ng-value="1" ng-model="scale.answer" required>Strongly Disagree
                 </label>
                 <label>
-                    <input type="radio" name="scale" ng-value="2" ng-model="scale.answer" ng-required="true">Disagree
+                    <input type="radio" ng-change="next(scale.answer)" name="scale" ng-value="2" ng-model="scale.answer" ng-required="true">Disagree
                 </label>
                 <label>
-                    <input type="radio" name="scale" ng-value="3" ng-model="scale.answer" ng-required="true">Slightly Disagree
+                    <input type="radio" ng-change="next(scale.answer)" name="scale" ng-value="3" ng-model="scale.answer" ng-required="true">Slightly Disagree
                 </label>
                 <label>
-                    <input type="radio" name="scale" ng-value="4" ng-model="scale.answer" ng-required="true">Slightly Agree
+                    <input type="radio" ng-change="next(scale.answer)" name="scale" ng-value="4" ng-model="scale.answer" ng-required="true">Slightly Agree
                 </label>
                 <label>
-                    <input type="radio" name="scale" ng-value="5" ng-model="scale.answer" ng-required="true">Agree
+                    <input type="radio" ng-change="next(scale.answer)" name="scale" ng-value="5" ng-model="scale.answer" ng-required="true">Agree
                 </label>
                 <label>
-                    <input type="radio" name="scale" ng-value="6" ng-model="scale.answer" ng-required="true">Strongly Agree
+                    <input type="radio" ng-change="next(scale.answer)" name="scale" ng-value="6" ng-model="scale.answer" ng-required="true">Strongly Agree
                 </label>
             </form>
         </div>
-        <button class="btn btn-primary" type="submit" name="button" ng-disabled="!scale" ng-click="next(scale.answer)">Next</button>
     </div>
-    <div ng-show="results">
+    <div ng-show="results && !promo">
         <h2>Complete!</h2>
         <h4>Thanks for completing the assessment. A link to your results has been emailed to you.</h4>
         <button class="btn btn-primary" type="button" name="button" ng-click="showScore()">Show Score</button>
         <h3>{{ score }}</h3>
         <a class="btn btn-primary" ui-sref="home">Return Home</a>
     </div>
-    <div ng-if="paidSubmitPending">
+    <div ng-if="paidSubmitPending && !promo">
         <h2>Complete!</h2>
         <button class="btn btn-primary" ng-click="paidSubmit()">Submit</a>
     </div>
-    <div ng-show="paidResults">
+    <div ng-show="paidResults && !promo">
         <h4>Thanks for completing the assessment. A link to your results has been emailed to you.</h4>
         <a class="btn btn-primary" ui-sref="list({userId: userId})">Return to Assessments & Results Menu</a>
+    </div>
+    
+    <div ng-show="promo && promoComplete">
+        <h2>Thank you for taking this assessment!</h2>
+        <button class="btn btn-primary" ng-click="submitPromo()">Finish</button>
     </div>
 </div>

@@ -7,9 +7,23 @@
         <canvas id="myChart" width="200" height="200"></canvas>
     </div>
 
-    <h3> {{text.title}} </h3>
-    <p> {{text.intro}} </p>
+    <h3> Readiness to Change </h3>
     <br />
-    <h3> {{text.header2}} </h3>
-    <p> {{text.section1}} </p>
+    
+    <div ng-if="results.stage === 'precontemplation'">
+        Precontemplation
+    </div>
+    <div ng-if="results.stage === 'contemplation'">
+        Contemplation
+    </div>
+    <div ng-if="results.stage === 'preparation'">
+        Preparation
+    </div>
+    <div ng-if="results.stage === 'action'">
+        Action
+    </div>
+    <div ng-if="results.stage === 'maintenance'">
+        Maintenance
+    </div>
+    
 </div>
