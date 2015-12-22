@@ -3,8 +3,7 @@ var Schema = Mongoose.Schema;
 var moment = require('moment');
 
 var Score = new Schema({
-	first_name: String,
-	last_name: String,
+	name: String,
 	date_taken: {
 		type: Date,
 		default: moment()

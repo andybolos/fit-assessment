@@ -21,8 +21,13 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         })
         .state('assessment', {
             url: '^/assessment',
-            templateUrl: '../views/assesment.html',
-            controller: 'questionCtrl'
+            templateUrl: '../views/assessment.html',
+            controller: 'questionCtrl',
+            params: {
+                promo: false,
+                promoCode: '',
+                name: ''
+            }
         })
         .state('list', {
             url: '^/list/:userId',
@@ -90,6 +95,16 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             resolve: {
                 getRCQResults: function(mainService, $stateParams) {
                     return mainService.getFullRCQResults($stateParams.assessment_id);
+                }
+            }
+        })
+        .state('promo', {
+            url: '^/promo',
+            templateUrl: '../views/promo.html',
+            controller: 'promoCtrl',
+            resolve: {
+                assessments: function (mainService) {
+                    return mainService.getAssessmentList();
                 }
             }
         })

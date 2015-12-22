@@ -34,6 +34,21 @@ app.service('mainService', function($state, $q, $http, $window) {
         
         return dfd.promise;
     }
+    
+    this.getAssessmentList = function () {
+        var dfd = $q.defer();
+        
+        $http.get('/api/getAssessmentList')
+            .then(function (response) {
+                var list = response.data;
+                dfd.resolve(list);
+            })
+            .catch(function (err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
+    }
 
     this.getMyAssessments = function(userId) {
         var dfd = $q.defer();
@@ -241,6 +256,42 @@ app.service('mainService', function($state, $q, $http, $window) {
             })
             .catch(function() {
                 dfd.reject();
+            })
+        
+        return dfd.promise;
+    }
+    
+    this.submitPromoCode = function (code) {
+        var dfd = $q.defer();
+        
+        $http.post('/api/promo/submit', { code: code })
+            .then(function (response) {
+                var isValid = response.data.success;
+                if (isValid) {
+                    dfd.resolve(response.data)
+                } else {
+                    // code is not valid, message on response.data.message
+                    dfd.resolve(response.data);
+                }
+            })
+            .catch(function (err) {
+                dfd.reject(err);
+            })
+        
+        return dfd.promise;
+    }
+    
+    this.submitPromoScore = function (promoObj) {
+        var dfd = $q.defer();
+        console.log(promoObj);
+        
+        $http.post('/api/submitPromoScore', promoObj)
+            .then(function (response) {
+                $state.go('promo');
+            })
+            .catch(function (err) {
+                console.log(err);
+                $state.go('promo')
             })
         
         return dfd.promise;
